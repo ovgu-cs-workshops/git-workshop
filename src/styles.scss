@@ -1,0 +1,30 @@
+@import "~normalize.css/normalize";
+
+body {
+  font-family: "Roboto";
+  //overflow: hidden;
+}
+
+@import "./styles/fallback";
+@import "./styles/markup";
+@import "./styles/click-fix";
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.step-placeholder {
+  width: 4em;
+}
+
+div.outline {
+  border-top: 4px solid #bf4a38;
+}

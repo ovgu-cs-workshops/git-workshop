@@ -1,0 +1,25 @@
+<div class="step cornered"
+  [attr.data-x]="x"
+  [attr.data-y]="y"
+  [attr.data-scale]="scale">
+  <div class="corners"></div>
+
+  <header>
+    <h2>{{title}}</h2>
+  </header>
+
+  <main>
+    <ng-content></ng-content>
+  </main>
+
+  <footer>
+    <section class="left">
+    </section>
+    <section class="center">
+      {{getNumber()}}
+    </section>
+    <section class="right">
+      {{getDate()}}
+    </section>
+  </footer>
+</div>
