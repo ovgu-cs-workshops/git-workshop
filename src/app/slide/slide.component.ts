@@ -12,6 +12,7 @@ export class SlideComponent implements OnInit {
   @Input('y') public y: string;
   @Input('scale') public scale: string;
   @Input('title') public title: string;
+  @Input('order') public order: number;
 
   constructor(private _dateService: DateService) { }
 
@@ -19,7 +20,7 @@ export class SlideComponent implements OnInit {
   }
 
   public getNumber(): number {
-    return 0;
+    return this.order;
   }
 
   public getDate(): string {

@@ -1,8 +1,10 @@
 @import "~normalize.css/normalize";
 
+$text-color: #413000;
+
 body {
   font-family: "Roboto";
-  //overflow: hidden;
+  color: $text-color;
 }
 
 @import "./styles/fallback";

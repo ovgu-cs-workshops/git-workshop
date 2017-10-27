@@ -9,6 +9,11 @@ import { SlideComponent } from './slide/slide.component';
 import { DateService } from './services/date.service';
 import { TtyComponent } from './tty/tty.component';
 import { SlideTtyComponent } from './slide-tty/slide-tty.component';
+import { SlideInitComponent } from './slide-init/slide-init.component';
+import { SlideReadmeComponent } from './slide-readme/slide-readme.component';
+import { SlideCommitComponent } from './slide-commit/slide-commit.component';
+import { SlideConfigComponent } from './slide-config/slide-config.component';
+import { SlideCommitExampleComponent } from './slide-commit-example/slide-commit-example.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { SlideTtyComponent } from './slide-tty/slide-tty.component';
     SlideTitleComponent,
     SlideComponent,
     TtyComponent,
-    SlideTtyComponent
+    SlideTtyComponent,
+    SlideInitComponent,
+    SlideReadmeComponent,
+    SlideCommitComponent,
+    SlideConfigComponent,
+    SlideCommitExampleComponent
   ],
   imports: [
     BrowserModule

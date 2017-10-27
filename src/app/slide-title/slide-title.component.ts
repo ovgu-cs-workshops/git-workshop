@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'slide-title',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slide-title.component.scss']
 })
 export class SlideTitleComponent implements OnInit {
+  @Input('order') public order: number;
 
   constructor() { }
 
