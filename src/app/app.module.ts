@@ -14,6 +14,8 @@ import { SlideReadmeComponent } from './slide-readme/slide-readme.component';
 import { SlideCommitComponent } from './slide-commit/slide-commit.component';
 import { SlideConfigComponent } from './slide-config/slide-config.component';
 import { SlideCommitExampleComponent } from './slide-commit-example/slide-commit-example.component';
+import { SlidePushComponent } from './slide-push/slide-push.component';
+import { SlideCloneComponent } from './slide-clone/slide-clone.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SlideCommitExampleComponent } from './slide-commit-example/slide-commit
     SlideReadmeComponent,
     SlideCommitComponent,
     SlideConfigComponent,
-    SlideCommitExampleComponent
+    SlideCommitExampleComponent,
+    SlidePushComponent,
+    SlideCloneComponent
   ],
   imports: [
     BrowserModule
