@@ -123,6 +123,8 @@ figcaption {
   align-content: stretch;
   width: 100%;
   height: 100%;
+  flex: 1 1 auto;
+  grid-gap: 1em 1em;
 }
 
 .layout {
@@ -132,6 +134,14 @@ figcaption {
 
   &-center {
     grid-area: center;
+  }
+
+  &-center-top {
+    grid-area: center-top;
+  }
+
+  &-center-bottom {
+    grid-area: center-bottom;
   }
 
   &-right {
@@ -160,14 +170,23 @@ figcaption {
       "center";
   }
 
+  &-2 {
+    @include layout();
+    grid-template-areas:
+      "center-top"
+      "center-bottom";
+  }
+
   &-1x1 {
     @include layout();
+    grid-auto-columns: 1fr;
     grid-template-areas:
       "left right";
   }
 
   &-1x1x1 {
     @include layout();
+    grid-auto-columns: 1fr;
     grid-template-areas:
       "left center right";
   }

@@ -5,6 +5,8 @@ $text-color: #413000;
 body {
   font-family: "Roboto";
   color: $text-color;
+  position: fixed;
+  width: 100%;
 }
 
 @import "./styles/fallback";

@@ -1,1 +1,4 @@
-<iframe [attr.src]="url"></iframe>
+<iframe
+  [ngClass]="{ 'block': loaded }"
+  [attr.src]="url">
+</iframe>
