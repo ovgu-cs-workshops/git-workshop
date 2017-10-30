@@ -4,7 +4,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project needs the `docker-wetty` container to be running on your machine to work properly.
+
+To setup `docker-wetty` do this:
+
+```
+$ git clone ssh://git@git.pattig.rocks:1023/git-talk/docker-wetty.git
+$ cd docker-wetty
+$ ./run.sh rebuild
+```
+
+To setup a development server of this project do this:
+
+```
+$ git clone ssh://git@git.pattig.rocks:1023/git-talk/ng-git-talk.git
+$ cd ng-git-talk
+$ npm install
+$ npm start
+```
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+You can also use `ng serve` to host a development server when you have the `@angular/cli` tool installed globally.
 
 ## Code scaffolding
 
