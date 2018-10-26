@@ -15,7 +15,7 @@ export class TtyComponent implements OnInit {
   constructor(private _sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.url = this._sanitizer.bypassSecurityTrustResourceUrl('//' + location.hostname + ':' + this.port);
+    this.url = this._sanitizer.bypassSecurityTrustResourceUrl('//' + location.hostname + ':' + this.port + '/terminal/slides');
 
     setTimeout(() => {
       this.loaded = true;
