@@ -57,6 +57,9 @@
           <li>Scales well for all project sizes</li>
         </ul>
       </ul>
+      <blockquote>
+        <code>git</code> is <b>not</b> easy to learn and hard to use correctly
+      </blockquote>
     </div>
     <div class="layout-right" style="text-align: center;">
       <img height="600" src="assets/git_2x.png">
@@ -67,7 +70,36 @@
 <slide
   order="4"
   scale="1"
-  title="Creating a new empty git repository">
+  title="Basics: What is a commit?">
+  <div class="layout-1">
+    <div class="layout-center" style="text-align: center;">
+      <img height="700" src="assets/diff.png">
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="5"
+  scale="1"
+  title="Basics: What is a branch?">
+</slide>
+
+<slide
+  order="6"
+  scale="1"
+  title="Basics: What is a tag?">
+</slide>
+
+<slide
+  order="7"
+  scale="1"
+  title="Basics: What is a repository?">
+</slide>
+
+<slide
+  order="8"
+  scale="1"
+  title="Let's start">
   <div class="layout-1x1">
     <div class="layout-left">
       <div>
@@ -82,11 +114,12 @@
 </slide>
 
 <slide
-  order="5"
+  order="9"
   scale="1"
-  title="Configuring your identity">
+  title="Ok, and now?">
   <div class="layout-2">
     <div class="layout-center-top">
+      Configure your environment!
       <pre>$ git config --global user.name "name"
 $ git config --global user.email "email"
 $ git config --global core.editor vim</pre>
@@ -102,16 +135,18 @@ $ git config --global core.editor vim</pre>
 </slide>
 
 <slide
-  order="6"
+  order="10"
   scale="1"
-  title="Add a readme to the repository">
+  title="I wanna do something!">
   <div class="layout-1x1">
     <div class="layout-left">
       <ul>
-        <li>Create your first file in the git repo</li>
+        <li>Add a <code>README</code> to the git repo</li>
         <li>Stage the new file with <code>git add</code></li>
-        <li>Commit that file</li>
-        <li>TBD: Explain Unstaged vs. Staged</li>
+        <ul>
+          <li>Staged files are files that are marked for commit</li>
+        </ul>
+        <li>Commit all staged files</li>
       </ul>
     </div>
 
@@ -122,9 +157,9 @@ $ git config --global core.editor vim</pre>
 </slide>
 
 <slide
-  order="7"
+  order="11"
   scale="1"
-  title="Writing a commit message">
+  title="Now tell your fellows what you did...">
   <div class="layout-1">
     <div class="layout-center">
       <pre>Short description in imperative - 70 columns max width ---------------
@@ -144,9 +179,9 @@ Long description ------- 80 chars wide -----------------------------------------
 </slide>
 
 <slide
-  order="8"
+  order="12"
   scale="1"
-  title="Commit message for the readme">
+  title="Let's do it together!">
   <div class="layout-1">
     <div class="layout-center">
       <tty></tty>
@@ -155,7 +190,34 @@ Long description ------- 80 chars wide -----------------------------------------
 </slide>
 
 <slide
-  order="9"
+  order="13"
+  scale="1"
+  title="How can I stage all files at once?">
+  <div class="layout-1">
+    <div class="layout-center">
+      <pre>$ git add -A</pre>
+      Will add all unstaged files to the staging area.
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="14"
+  scale="1"
+  title="But I don't want all the files!">
+  <div class="layout-2">
+    <div class="layout-center-top">
+      There is magic for that! A file called <code>.gitignore</code>
+      <pre>./just?use*bash{{'{'}}globs,here{{'}'}}</pre>
+    </div>
+    <div class="layout-center-bottom">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="15"
   scale="1"
   title="Pushing to a remote repository">
   <div class="layout-1x1">
@@ -173,7 +235,25 @@ Long description ------- 80 chars wide -----------------------------------------
 </slide>
 
 <slide
-  order="10"
+  order="16"
+  scale="1"
+  title="Ok, and how do I use these branches and tags now?">
+</slide>
+
+<slide
+  order="17"
+  scale="1"
+  title="How a merge works">
+</slide>
+
+<slide
+  order="18"
+  scale="1"
+  title="How a rebase works">
+</slide>
+
+<slide
+  order="19"
   scale="1"
   title="Cloning an existing repository">
   <div class="layout-2">
@@ -192,7 +272,7 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
 </slide>
 
 <slide
-  order="11"
+  order="9999"
   scale="1"
   title="TTY">
   <tty></tty>
