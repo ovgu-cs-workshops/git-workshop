@@ -8,8 +8,6 @@ import { DateService } from '../services/date.service';
   styleUrls: ['./slide.component.scss']
 })
 export class SlideComponent implements OnInit {
-  @Input('x') public x: string;
-  @Input('y') public y: string;
   @Input('scale') public scale: string;
   @Input('title') public title: string;
   @Input('order') public order: number;

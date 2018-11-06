@@ -1,12 +1,160 @@
-<slide-title order="1"></slide-title>
-<slide-init order="2"></slide-init>
-<slide-config order="3"></slide-config>
-<slide-readme order="4"></slide-readme>
-<slide-commit order="5"></slide-commit>
-<slide-commit-example order="6"></slide-commit-example>
-<slide-push order="7"></slide-push>
-<slide-clone order="8"></slide-clone>
-<slide-tty order="9"></slide-tty>
+<slide
+  order="1"
+  scale="1"
+  title="">
+  <div class="layout-1x1">
+    <div class="layout-left">
+      <h1>Git Workshop</h1>
+      <h3>
+        Willy Failla
+        <br>
+        Martin Koppehel
+        <br>
+        Johann Wagner
+        <br>
+        Fin Christensen
+      </h3>
+    </div>
+
+    <div class="layout-right" style="align-self: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg">
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="2"
+  scale="1"
+  title="Creating a new empty git repository">
+  <div class="layout-1x1">
+    <div class="layout-left">
+      <div>
+        Create a new repo in the current directory:
+      </div>
+      <pre>$ git init</pre>
+    </div>
+    <div class="layout-right">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="3"
+  scale="1"
+  title="Configuring your identity">
+  <div class="layout-2">
+    <div class="layout-center-top">
+      <pre>$ git config --global user.name "name"
+$ git config --global user.email "email"
+$ git config --global core.editor vim</pre>
+
+      <div>
+        Installed editors: <code>vim</code>, <code>emacs</code>, <code>nano</code>
+      </div>
+    </div>
+    <div class="layout-center-bottom">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="4"
+  scale="1"
+  title="Add a readme to the repository">
+  <div class="layout-1x1">
+    <div class="layout-left">
+      <ul>
+        <li>Create your first file in the git repo</li>
+        <li>Stage the new file with <code>git add</code></li>
+        <li>Commit that file</li>
+        <li>TBD: Explain Unstaged vs. Staged</li>
+      </ul>
+    </div>
+
+    <div class="layout-right">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="5"
+  scale="1"
+  title="Writing a commit message">
+  <div class="layout-1">
+    <div class="layout-center">
+      <pre>Short description in imperative - 70 columns max width ---------------
+
+Long description ------- 80 chars wide -----------------------------------------
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   README.md
+#</pre>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="6"
+  scale="1"
+  title="Commit message for the readme">
+  <div class="layout-1">
+    <div class="layout-center">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="7"
+  scale="1"
+  title="Pushing to a remote repository">
+  <div class="layout-1x1">
+    <div class="layout-left">
+      <ul>
+        <li>Each remote is also a git repository</li>
+        <li>You can use anything as a remote</li>
+        <li>Pushing is applying your local changes on the remote repo</li>
+      </ul>
+    </div>
+    <div class="layout-right">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="8"
+  scale="1"
+  title="Cloning an existing repository">
+  <div class="layout-2">
+    <div class="layout-center-top">
+      <p>
+        Cloning means receiving an identical copy of the remote repository
+      </p>
+
+      <pre>$ git clone https://github.com/octocat/Hello-World.git
+$ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
+    </div>
+    <div class="layout-center-bottom">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
+
+<slide
+  order="9"
+  scale="1"
+  title="TTY">
+  <tty></tty>
+</slide>
 
 <!--
      * [1] Add gitignore slide
