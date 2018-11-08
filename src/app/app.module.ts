@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SlidesComponent } from './slides/slides.component';
 import { SlideComponent } from './slide/slide.component';
+import { ChapterComponent } from './chapter/chapter.component';
 
 import { DateService } from './services/date.service';
 import { TtyComponent } from './tty/tty.component';
@@ -13,12 +14,15 @@ import { TtyComponent } from './tty/tty.component';
     AppComponent,
     SlidesComponent,
     SlideComponent,
+    ChapterComponent,
     TtyComponent,
   ],
   imports: [
     BrowserModule
   ],
-  providers: [DateService],
+  providers: [
+    DateService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,3 @@
 export const config = {
-  date: "November 2018"
+  date: 'November 2018',
 };

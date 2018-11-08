@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 
 import { DateService } from '../services/date.service';
+
 
 @Component({
   selector: 'slide',
@@ -10,15 +11,27 @@ import { DateService } from '../services/date.service';
 export class SlideComponent implements OnInit {
   @Input('scale') public scale: string;
   @Input('title') public title: string;
-  @Input('order') public order: number;
+  public order: number;
+  public chapter: number;
 
-  constructor(private _dateService: DateService) { }
+  constructor(
+    private _dateService: DateService,
+    private changeDetector: ChangeDetectorRef,
+  ) { }
+
+  change() {
+    this.changeDetector.detectChanges();
+  }
 
   public ngOnInit(): void {
   }
 
   public getNumber(): number {
     return this.order;
+  }
+
+  public getChapter(): number {
+    return this.chapter;
   }
 
   public getDate(): string {

@@ -1,309 +1,301 @@
-<slide
-  order="1"
-  scale="1"
-  title="">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <h1>Git Workshop</h1>
-      <h3>
-        Willy Failla
-        <br>
-        Martin Koppehel
-        <br>
-        Johann Wagner
-        <br>
-        Fin Christensen
-      </h3>
-    </div>
-
-    <div class="layout-right" style="align-self: center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg">
-    </div>
-  </div>
-</slide>
-
-<slide
-  order="2"
-  scale="1"
-  title="Why version control?">
-  <div class="layout-2">
-    <img class="layout-center-top" src="./assets/version-control.svg">
-    <div class="layout-center-bottom">
-      <ul>
-        <li>Protects your sourcecode from loss or damage</li>
-        <li>Enables collaborative and concurrent work</li>
-        <li>Revert your sourcecode to a previous state</li>
-      </ul>
-    </div>
-  </div>
-</slide>
-
-<slide
-  order="3"
-  scale="1"
-  title="Why use git?">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <ul>
-        <li>Decentralized</li>
-        <ul>
-          <li>No central server</li>
-          <li>Distributed development</li>
-          <li>Perfect for open source projects</li>
-        </ul>
-        <li>Flexible</li>
-        <ul>
-          <li>Can implement almost any workflow</li>
-          <li>Scales well for all project sizes</li>
-        </ul>
-      </ul>
-      <blockquote>
-        <code>git</code> is <b>not</b> easy to learn and hard to use correctly
-      </blockquote>
-    </div>
-    <div class="layout-right" style="text-align: center;">
-      <img height="600" src="assets/git_2x.png">
-    </div>
-  </div>
-</slide>
-
-<slide
-  order="4"
-  scale="1"
-  title="Basics: What is a commit?">
-  <div class="layout-1">
-    <div class="layout-center" style="text-align: center;">
-      <img height="700" src="assets/diff.png">
-    </div>
-  </div>
-</slide>
-
-<slide
-  order="5"
-  scale="1"
-  title="Basics: What is a branch?">
-</slide>
-
-<slide
-  order="6"
-  scale="1"
-  title="Basics: What is a tag?">
-</slide>
-
-<slide
-  order="7"
-  scale="1"
-  title="Basics: What is a repository?">
-</slide>
-
-<slide
-  order="8"
-  scale="1"
-  title="Let's start">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <div>
-        Create a new repo in the current directory:
+<chapter>
+  <slide
+    scale="1"
+    title="">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <h1>Git Workshop</h1>
+        <h3>
+          Willy Failla
+          <br>
+          Martin Koppehel
+          <br>
+          Johann Wagner
+          <br>
+          Fin Christensen
+          <br>
+          Johannes Wünsche
+        </h3>
       </div>
-      <pre>$ git init</pre>
-    </div>
-    <div class="layout-right">
-      <tty></tty>
-    </div>
-  </div>
-</slide>
 
-<slide
-  order="9"
-  scale="1"
-  title="Ok, and now?">
-  <div class="layout-2">
-    <div class="layout-center-top">
-      Configure your environment!
-      <pre>$ git config --global user.name "name"
-$ git config --global user.email "email"
-$ git config --global core.editor vim</pre>
-
-      <div>
-        Installed editors: <code>vim</code>, <code>emacs</code>, <code>nano</code>
+      <div class="layout-right" style="align-self: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg">
       </div>
     </div>
-    <div class="layout-center-bottom">
-      <tty></tty>
-    </div>
-  </div>
-</slide>
-
-<slide
-  order="10"
-  scale="1"
-  title="I wanna do something!">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <ul>
-        <li>Add a <code>README</code> to the git repo</li>
-        <li>Stage the new file with <code>git add</code></li>
+  </slide>
+  <slide
+    scale="1"
+    title="Why version control?">
+    <div class="layout-2">
+      <img class="layout-center-top" src="./assets/version-control.svg">
+      <div class="layout-center-bottom">
         <ul>
-          <li>Staged files are files that are marked for commit</li>
+          <li>Protects your sourcecode from loss or damage</li>
+          <li>Enables collaborative and concurrent work</li>
+          <li>Revert your sourcecode to a previous state</li>
         </ul>
-        <li>Commit all staged files</li>
-      </ul>
+      </div>
     </div>
+  </slide>
+</chapter>
 
-    <div class="layout-right">
-      <tty></tty>
+<chapter>
+  <slide
+    scale="1"
+    title="Why use git?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Decentralized</li>
+          <ul>
+            <li>No central server</li>
+            <li>Distributed development</li>
+            <li>Perfect for open source projects</li>
+          </ul>
+          <li>Flexible</li>
+          <ul>
+            <li>Can implement almost any workflow</li>
+            <li>Scales well for all project sizes</li>
+          </ul>
+        </ul>
+        <blockquote>
+          <code>git</code> is <b>not</b> easy to learn and hard to use correctly
+        </blockquote>
+      </div>
+      <div class="layout-right" style="text-align: center;">
+        <img height="600" src="assets/git_2x.png">
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="11"
-  scale="1"
-  title="Now tell your fellows what you did...">
-  <div class="layout-1">
-    <div class="layout-center">
-      <pre>Short description in imperative - 70 columns max width ---------------
-
-Long description ------- 80 chars wide -----------------------------------------
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#	new file:   README.md
-#</pre>
+  <slide
+    scale="1"
+    title="Basics: What is a commit?">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img height="700" src="assets/diff.png">
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="12"
-  scale="1"
-  title="Let's do it together!">
-  <div class="layout-1">
-    <div class="layout-center">
-      <tty></tty>
+  <slide
+    scale="1"
+    title="Basics: What is a branch?">
+  </slide>
+
+  <slide
+    scale="1"
+    title="Basics: What is a tag?">
+  </slide>
+
+  <slide
+    scale="1"
+    title="Basics: What is a repository?">
+  </slide>
+
+  <slide
+    scale="1"
+    title="Let's start">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <div>
+          Create a new repo in the current directory:
+        </div>
+        <pre>$ git init</pre>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="13"
-  scale="1"
-  title="How can I stage all files at once?">
-  <div class="layout-1">
-    <div class="layout-center">
-      <pre>$ git add -A</pre>
-      Will add all unstaged files to the staging area.
+  <slide
+    scale="1"
+    title="Ok, and now?">
+    <div class="layout-2">
+      <div class="layout-center-top">
+        Configure your environment!
+        <pre>$ git config --global user.name "name"
+  $ git config --global user.email "email"
+  $ git config --global core.editor vim</pre>
+
+        <div>
+          Installed editors: <code>vim</code>, <code>emacs</code>, <code>nano</code>
+        </div>
+      </div>
+      <div class="layout-center-bottom">
+        <tty></tty>
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="14"
-  scale="1"
-  title="But I don't want all the files!">
-  <div class="layout-2">
-    <div class="layout-center-top">
-      There is magic for that! A file called <code>.gitignore</code>
-      <pre>./just?use*bash{{'{'}}globs,here{{'}'}}</pre>
+  <slide
+    scale="1"
+    title="I wanna do something!">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Add a <code>README</code> to the git repo</li>
+          <li>Stage the new file with <code>git add</code></li>
+          <ul>
+            <li>Staged files are files that are marked for commit</li>
+          </ul>
+          <li>Commit all staged files</li>
+        </ul>
+      </div>
+
+      <div class="layout-right">
+        <tty></tty>
+      </div>
     </div>
-    <div class="layout-center-bottom">
-      <tty></tty>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Now tell your fellows what you did...">
+    <div class="layout-1">
+      <div class="layout-center">
+        <pre>Short description in imperative - 70 columns max width ---------------
+
+  Long description ------- 80 chars wide -----------------------------------------
+  # Please enter the commit message for your changes. Lines starting
+  # with '#' will be ignored, and an empty message aborts the commit.
+  # On branch master
+  #
+  # Initial commit
+  #
+  # Changes to be committed:
+  #	new file:   README.md
+  #</pre>
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="15"
-  scale="1"
-  title="Pushing to a remote repository">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <ul>
-        <li>Each remote is also a git repository</li>
-        <li>You can use anything as a remote</li>
-        <li>Pushing is applying your local changes on the remote repo</li>
-      </ul>
+  <slide
+    scale="1"
+    title="Let's do it together!">
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
+      </div>
     </div>
-    <div class="layout-right">
-      <tty></tty>
+  </slide>
+
+  <slide
+    scale="1"
+    title="How can I stage all files at once?">
+    <div class="layout-1">
+      <div class="layout-center">
+        <pre>$ git add -A</pre>
+        Will add all unstaged files to the staging area.
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="16"
-  scale="1"
-  title="Ok, and how do I use these branches and tags now?">
-</slide>
-
-<slide
-  order="17"
-  scale="1"
-  title="How a merge works">
-</slide>
-
-<slide
-  order="18"
-  scale="1"
-  title="How a rebase works">
-</slide>
-
-<slide
-  order="19"
-  scale="1"
-  title="Cloning an existing repository">
-  <div class="layout-2">
-    <div class="layout-center-top">
-      <p>
-        Cloning means receiving an identical copy of the remote repository
-      </p>
-
-      <pre>$ git clone https://github.com/octocat/Hello-World.git
-$ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
+  <slide
+    order="14"
+    scale="1"
+    title="But I don't want all the files!">
+    <div class="layout-2">
+      <div class="layout-center-top">
+        There is magic for that! A file called <code>.gitignore</code>
+        <pre>./just?use*bash{{'{'}}globs,here{{'}'}}</pre>
+      </div>
+      <div class="layout-center-bottom">
+        <tty></tty>
+      </div>
     </div>
-    <div class="layout-center-bottom">
-      <tty></tty>
+  </slide>
+
+  <slide
+    order="15"
+    scale="1"
+    title="Pushing to a remote repository">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Each remote is also a git repository</li>
+          <li>You can use anything as a remote</li>
+          <li>Pushing is applying your local changes on the remote repo</li>
+        </ul>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
+      </div>
     </div>
-  </div>
-</slide>
+  </slide>
 
-<slide
-  order="9999"
-  scale="1"
-  title="TTY">
-  <tty></tty>
-</slide>
+  <slide
+    order="16"
+    scale="1"
+    title="Ok, and how do I use these branches and tags now?">
+  </slide>
 
-<!--
-     * [1] Add gitignore slide
-     * [3] branches / tags
-     * [6] merge vs. rebase / workflows
-     * [2] checkout/revert/reset/clean
-     * [2] rewriting history
-     * [?] cherry picking
+  <slide
+    order="17"
+    scale="1"
+    title="How a merge works">
+  </slide>
 
-     rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-     merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+  <slide
+    order="18"
+    scale="1"
+    title="How a rebase works">
+  </slide>
 
-  centralized workflow:
-   - one master branch
-   - small team sizes
-   - rebase
-   - linear history
+  <slide
+    order="19"
+    scale="1"
+    title="Cloning an existing repository">
+    <div class="layout-2">
+      <div class="layout-center-top">
+        <p>
+          Cloning means receiving an identical copy of the remote repository
+        </p>
 
-  feature branching:
-   - feature development on dedicated branch
-   - not disturbing the main code base
-   - master should not contain broken code
+        <pre>$ git clone https://github.com/octocat/Hello-World.git
+  $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
+      </div>
+      <div class="layout-center-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
 
-  forking workflow:
-   - each developer has a local and a remote repository
+  <slide
+    order="9999"
+    scale="1"
+    title="TTY">
+    <tty></tty>
+  </slide>
 
-  gitflow workflow:
-   - large projects with scheduled release cycles
-   - master, hotfix, develop, feature, release
--->
+  <!--
+       * [1] Add gitignore slide
+       * [3] branches / tags
+       * [6] merge vs. rebase / workflows
+       * [2] checkout/revert/reset/clean
+       * [2] rewriting history
+       * [?] cherry picking
+
+       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+    centralized workflow:
+     - one master branch
+     - small team sizes
+     - rebase
+     - linear history
+
+    feature branching:
+     - feature development on dedicated branch
+     - not disturbing the main code base
+     - master should not contain broken code
+
+    forking workflow:
+     - each developer has a local and a remote repository
+
+    gitflow workflow:
+     - large projects with scheduled release cycles
+     - master, hotfix, develop, feature, release
+  -->
+</chapter>
