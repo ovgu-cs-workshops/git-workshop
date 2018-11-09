@@ -1,4 +1,5 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { SlideComponent } from '../slide/slide.component';
 
@@ -11,9 +12,18 @@ export class ChapterComponent implements OnInit, AfterViewInit {
   @ContentChildren(SlideComponent) private slides: QueryList<SlideComponent>;
 
   public order = 0;
+  public prevOrder = 0;
+  public prevOrderSubject = new BehaviorSubject<number>(0);
   public chapter = 0;
+  public chapterSubject = new BehaviorSubject<number>(0);
 
   constructor(private changeDetector: ChangeDetectorRef) {
+    this.chapterSubject.subscribe(v => {
+      this.chapter = v;
+    });
+    this.prevOrderSubject.subscribe(v => {
+      this.prevOrder = v;
+    });
   }
 
   ngOnInit() {
@@ -25,15 +35,10 @@ export class ChapterComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.slides.forEach((slide) => {
-      if (this.chapter % 2 === 0) {
-        slide.order = ++this.order;
-      } else {
-        slide.order = this.order--;
-      }
-      slide.chapter = this.chapter;
-      slide.change();
+      slide.subscribe(this.prevOrderSubject, this.chapterSubject);
+      slide.order = this.order++;
     });
-    this.changeDetector.detectChanges();
+    this.order--;
   }
 
 }
