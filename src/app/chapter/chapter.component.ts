@@ -8,8 +8,8 @@ import { SlideComponent } from '../slide/slide.component';
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.scss']
 })
-export class ChapterComponent implements OnInit, AfterViewInit {
-  @ContentChildren(SlideComponent) private slides: QueryList<SlideComponent>;
+export class ChapterComponent implements AfterViewInit {
+  @ContentChildren(SlideComponent) private _slides: QueryList<SlideComponent>;
 
   public order = 0;
   public prevOrder = 0;
@@ -26,19 +26,29 @@ export class ChapterComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {
-  }
-
-  change() {
+  public change(): void {
     this.changeDetector.detectChanges();
   }
 
-  ngAfterViewInit() {
-    this.slides.forEach((slide) => {
+  public assignSlidePositions(start: number): number {
+    this._slides.forEach(slide => {
+      slide.position.next(++start);
+    });
+
+    return start;
+  }
+
+  public setSlideCount(count: number): void {
+    this._slides.forEach(slide => {
+      slide.slideCount.next(count);
+    });
+  }
+
+  public ngAfterViewInit(): void {
+    this._slides.forEach((slide) => {
       slide.subscribe(this.prevOrderSubject, this.chapterSubject);
       slide.order = this.order++;
     });
     this.order--;
   }
-
 }
