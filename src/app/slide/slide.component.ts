@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 import { DateService } from '../services/date.service';
 

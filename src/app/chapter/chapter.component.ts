@@ -1,5 +1,5 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 import { SlideComponent } from '../slide/slide.component';
 
