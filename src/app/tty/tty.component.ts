@@ -9,34 +9,34 @@ import { Terminal } from 'xterm';
 })
 export class TtyComponent implements AfterViewInit {
   @ViewChild('terminal')
-  private terminalElement: ElementRef;
-  private terminal: Terminal;
+  private _terminalElement: ElementRef;
+  private _terminal: Terminal;
 
   constructor(private _backend: BackendService) {
-    this.terminal = new Terminal();
+    this._terminal = new Terminal();
   }
 
   ngAfterViewInit() {
-    this.terminal.open(this.terminalElement.nativeElement);
-    (this.terminal as any).fit();
-    this.terminal.clear();
-    this.terminal.writeln('Connecting...');
-    this._backend.createConsole(this.terminal.cols, this.terminal.rows).then(result => {
-      this.terminal.clear();
-      this.terminal.on('data', data => {
+    this._terminal.open(this._terminalElement.nativeElement);
+    (this._terminal as any).fit();
+    this._terminal.clear();
+    this._terminal.writeln('Connecting...');
+    this._backend.createConsole(this._terminal.cols, this._terminal.rows).then(result => {
+      this._terminal.clear();
+      this._terminal.on('data', data => {
         result.sendInput(data);
       });
       const sub = result.output.subscribe((out) => {
-        this.terminal.write(out);
+        this._terminal.write(out);
       });
       result.onClose().then(() => {
         sub.unsubscribe();
-        this.terminal.clear();
-        this.terminal.writeln('Disconnected from server');
+        this._terminal.clear();
+        this._terminal.writeln('Disconnected from server');
       });
     }, err => {
-      this.terminal.clear();
-      this.terminal.writeln('Failed to connect to server!');
+      this._terminal.clear();
+      this._terminal.writeln('Failed to connect to server!');
       console.log('createconsole', err);
     });
   }
