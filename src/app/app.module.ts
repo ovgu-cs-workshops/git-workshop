@@ -7,6 +7,7 @@ import { SlideComponent } from './slide/slide.component';
 import { ChapterComponent } from './chapter/chapter.component';
 
 import { DateService } from './services/date.service';
+import { BackendService } from './services/backend.service';
 import { TtyComponent } from './tty/tty.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TtyComponent } from './tty/tty.component';
   ],
   providers: [
     DateService,
+    BackendService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,4 @@
 import { Component, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-import { SlideComponent } from '../slide/slide.component';
 import { ChapterComponent } from '../chapter/chapter.component';
 
 @Component({
