@@ -1,26 +1,43 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { BackendService } from '../services/backend.service';
+import { Terminal } from 'xterm';
 
 @Component({
   selector: 'tty',
   templateUrl: './tty.component.html',
   styleUrls: ['./tty.component.scss']
 })
-export class TtyComponent implements OnInit {
-  @Input('port') public port: string;
+export class TtyComponent implements AfterViewInit {
+  @ViewChild('terminal')
+  private _terminalElement: ElementRef;
+  private _terminal: Terminal;
 
-  public url: SafeResourceUrl;
-  public loaded: boolean = false;
+  constructor(private _backend: BackendService) {
+    this._terminal = new Terminal();
+  }
 
-  constructor(private _sanitizer: DomSanitizer) { }
-
-  ngOnInit() {
-    this.url = this._sanitizer.bypassSecurityTrustResourceUrl(
-      '//' + location.hostname + ':' + (this.port || "8000") + '/terminal/slides'
-    );
-
-    setTimeout(() => {
-      this.loaded = true;
-    }, 1000);
+  ngAfterViewInit() {
+    this._terminal.open(this._terminalElement.nativeElement);
+    (this._terminal as any).fit();
+    this._terminal.clear();
+    this._terminal.writeln('Connecting...');
+    this._backend.createConsole(this._terminal.cols, this._terminal.rows).then(result => {
+      this._terminal.clear();
+      this._terminal.on('data', data => {
+        result.sendInput(data);
+      });
+      const sub = result.output.subscribe((out) => {
+        this._terminal.write(out);
+      });
+      result.onClose().then(() => {
+        sub.unsubscribe();
+        this._terminal.clear();
+        this._terminal.writeln('Disconnected from server');
+      });
+    }, err => {
+      this._terminal.clear();
+      this._terminal.writeln('Failed to connect to server!');
+      console.log('createconsole', err);
+    });
   }
 }

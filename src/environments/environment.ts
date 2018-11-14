@@ -7,5 +7,6 @@ import { config } from './config';
 
 export const environment = {
   production: false,
-  config: config
+  config: config,
+  endpoint: 'ws://localhost:4000',
 };
