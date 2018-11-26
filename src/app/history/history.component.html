@@ -1,0 +1,15 @@
+<div id="history">
+  <div #graph id="graph"></div>
+  <div id="commits">
+    <div class="commit" *ngFor="let node of nodes">
+      <span class="label" *ngIf="node.tag.length > 0">&lt;{{ node.tag }}&gt;</span>
+      <span class="label" *ngIf="node.branch.length > 0">[{{ node.branch }}]</span>
+      {{ node.message }}
+    </div>
+  </div>
+  <button (click)="nextStep()">Next</button>
+</div>
+
+<div #spec id="spec">
+  <ng-content></ng-content>
+</div>

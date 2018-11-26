@@ -9,6 +9,7 @@ import { ChapterComponent } from './chapter/chapter.component';
 import { DateService } from './services/date.service';
 import { BackendService } from './services/backend.service';
 import { TtyComponent } from './tty/tty.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TtyComponent } from './tty/tty.component';
     SlideComponent,
     ChapterComponent,
     TtyComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule

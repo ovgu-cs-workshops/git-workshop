@@ -36,6 +36,7 @@
     "@types/jasmine": "~2.8.11",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "^10.12.5",
+    "@types/vis": "^4.21.8",
     "@verkehrsministerium/kraftfahrstrasse": "0.0.11",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~3.3.0",
@@ -53,6 +54,7 @@
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6",
+    "vis": "^4.16.1",
     "xterm": "^3.8.0"
   }
 }
