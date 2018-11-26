@@ -585,6 +585,75 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
     <tty></tty>
   </slide>
 
+<chapter>
+  <slide
+    scale="1"
+    title="Why Workflows">
+
+    <div class="layout-center">
+      <pre>$ git add -a
+$ git commit -m "Done some important work(not tested)"
+$ git push --force</pre>
+    </div>
+
+  </slide>
+
+  <slide
+    scale="1"
+    title="Literally 5 minutes later">
+    <div class="layout-center" style="text-align: center">
+      <img src="../../assets/workflow_burning.png">
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Graduation Workflow">
+    <ul>
+      <li>Idea is the division into multiple stages that commits go through until they reach a release</li>
+      <li>maintenance: commits contained in the next update for a released stable version</li>
+      <li>master: commits contained in the next release</li>
+      <li>next: commits being tested for master</li>
+      <li>proposed-updates: commits not ready for integration</li>
+    </ul>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center">
+      So what if I want to introduce a new awesome feature?
+      Simple! Push it to proposed updates!
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center-top">
+      <pre>
+Updates were rejected because the remote contains work that you do
+not have locally. This is usually caused by another repository pushing
+to the same ref</pre>
+      <div class="layout-center-bottom" style="text-align: center">
+        <img src="../../assets/workflow_denied.png">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Topic Branches">
+    Solution? Create branches for new features!
+    <tty></tty>
+    <pre>
+| | [new branch]  feature/awesome_new_thing
+|/
+|  master
+</pre>
+  </slide>
+</chapter>
+
   <!--
        * [1] Add gitignore slide
        * [3] branches / tags
