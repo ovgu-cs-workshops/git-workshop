@@ -25,7 +25,7 @@ export class TtyComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this._terminal
+    (this._terminal as any)
       .loadWebfontAndOpen(this._terminalElement.nativeElement)
       .then(terminal => {
         terminal.clear();
