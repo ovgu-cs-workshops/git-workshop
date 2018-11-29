@@ -101,10 +101,18 @@
 <chapter>
   <slide
     scale="1"
-    title="Basics: What is a commit?">
-    <div class="layout-1">
-      <div class="layout-center" style="text-align: center;">
-        <img height="700" src="assets/diff.png">
+    title="Basics: What is a repository?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Git projects are hold in "repositories"</li>
+          <li>A git repository holds all the history of the project</li>
+          <li>History is hold in the <code>.git</code> folder in your project root</li>
+        </ul>
+      </div>
+
+      <div class="layout-right" style="text-align: center;">
+        <img height="300" src="assets/git-project-layout.svg">
       </div>
     </div>
   </slide>
@@ -112,17 +120,89 @@
   <slide
     scale="1"
     title="Basics: What is a branch?">
+    <div class="layout-2">
+      <div class="layout-top">
+        <ul>
+          <li>The Git history ist managed in "branches"</li>
+          <li>Branches can be seen as timelines</li>
+          <li>A branch is diverted from a parent branch</li>
+          <li>Branches are managing "commits"</li>
+          <li>Default branch: <code>master</code></li>
+        </ul>
+      </div>
+
+      <div class="layout-bottom" style="text-align: center;">
+        <img height="300" src="assets/git-branches.svg">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Basics: What is a commit?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>A commit is</li>
+          <ul>
+            <li>A node in a branch</li>
+            <li>A "diff" of code changes that are added to the history</li>
+            <li>Some metadata such as author and the commit message</li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="layout-right">
+        <img src="assets/diff.png">
+      </div>
+    </div>
   </slide>
 
   <slide
     scale="1"
     title="Basics: What is a tag?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Commits can be marked with a "tag"</li>
+          <li>A tag is a unique identifier pointing on a commit</li>
+          <li>Are usually used to mark releases of a software</li>
+          <li>A tag consists of a name and a message</li>
+          <li>The commit <code>3</code> introduces the tag <code>v0.1.0</code> on branch <code>master</code></li>
+        </ul>
+      </div>
+
+      <div class="layout-right">
+        <history>
+          master@Initial commit;
+          master@Add fancy code;
+          master:v0.1.0@Add documentation;
+          master@Work on new feature;
+          master@Fix major bugs;
+        </history>
+      </div>
+    </div>
   </slide>
 
   <slide
     scale="1"
-    title="Basics: What is a repository?">
+    title="Basics: Summing it Up">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>A repository is made up of one or more branches</li>
+          <li>Branches can exist side by side</li>
+          <li>Branches are made up of commits that build the history of your project</li>
+          <li>Commits are holding the actual "code changes" in the history</li>
+        </ul>
+      </div>
+
+      <div class="layout-right" style="text-align: center; align-self: center; padding-bottom: 2em;">
+        <img width="900" src="assets/history.png">
+      </div>
+    </div>
   </slide>
+
 </chapter>
 
 <chapter>
@@ -131,8 +211,33 @@
     title="Let's start">
     <div class="layout-1x1">
       <div class="layout-left">
+        <p><b>Get your laptops!</b></p>
+        <p>
+          Open <a href="https://workshop.pattig.rocks">https://workshop.pattig.rocks</a> in your web-browser!
+        </p>
+        <p>
+          This will open up a terminal with all tools preinstalled!
+        </p>
+      </div>
+
+      <div class="layout-right" style="text-align: center; align-self: center;">
+        <img height="500" src="assets/workshop-site.png">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Let's Use Git">
+    <div class="layout-1x1">
+      <div class="layout-left">
         <div>
-          Create a new repo in the current directory:
+          Create a new directory and <code>cd</code> into it:
+        </div>
+        <pre>$ mkdir my-project
+$ cd my-project</pre>
+        <div>
+          Create a new repo in this directory:
         </div>
         <pre>$ git init</pre>
       </div>
@@ -150,13 +255,31 @@
         Configure your environment!
         <pre>$ git config --global user.name "name"
 $ git config --global user.email "email"
-$ git config --global core.editor vim</pre>
+$ git config --global core.editor nano</pre>
 
         <div>
           Installed editors: <code>vim</code>, <code>emacs</code>, <code>nano</code>
         </div>
       </div>
       <div class="layout-center-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="How to Use Nano">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Open or create a new file: <pre>$ nano my-file.txt</pre></li>
+          <li>Save a file: <code>Ctrl+O</code></li>
+          <li>Quit Nano <code>Ctrl+X</code></li>
+        </ul>
+      </div>
+
+      <div class="layout-right">
         <tty></tty>
       </div>
     </div>
@@ -217,10 +340,14 @@ $ git config --global core.editor vim</pre>
   <slide
     scale="1"
     title="How can I stage all files at once?">
-    <div class="layout-1">
-      <div class="layout-center">
+    <div class="layout-1x1">
+      <div class="layout-left">
         <pre>$ git add -A</pre>
         Will add all unstaged files to the staging area.
+      </div>
+
+      <div class="layout-right">
+        <tty></tty>
       </div>
     </div>
   </slide>
