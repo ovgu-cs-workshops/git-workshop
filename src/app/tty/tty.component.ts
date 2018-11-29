@@ -19,7 +19,7 @@ export class TtyComponent implements AfterViewInit {
     this._terminal = new Terminal({
       fontFamily: 'Roboto Mono',
       fontSize: 32,
-      cols: 30,
+      cols: 54,
       rows: 10,
     });
   }
