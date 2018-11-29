@@ -1,7 +1,10 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Terminal } from 'xterm';
+import * as WebfontLoader from 'xterm-webfont';
 
+Terminal.applyAddon(WebfontLoader)
+;
 @Component({
   selector: 'tty',
   templateUrl: './tty.component.html',
@@ -13,31 +16,41 @@ export class TtyComponent implements AfterViewInit {
   private _terminal: Terminal;
 
   constructor(private _backend: BackendService) {
-    this._terminal = new Terminal();
+    this._terminal = new Terminal({
+      fontFamily: 'Roboto Mono',
+      fontSize: 32,
+      cols: 30,
+      rows: 10,
+    });
   }
 
   ngAfterViewInit() {
-    this._terminal.open(this._terminalElement.nativeElement);
-    (this._terminal as any).fit();
-    this._terminal.clear();
-    this._terminal.writeln('Connecting...');
-    this._backend.createConsole(this._terminal.cols, this._terminal.rows).then(result => {
-      this._terminal.clear();
-      this._terminal.on('data', data => {
-        result.sendInput(data);
+    this._terminal
+      .loadWebfontAndOpen(this._terminalElement.nativeElement)
+      .then(terminal => {
+        terminal.clear();
+        (terminal as any).fit();
+        terminal.writeln('Connecting...');
+
+        this._backend.createConsole(this._terminal.cols, this._terminal.rows)
+          .then(result => {
+            terminal.clear();
+            terminal.on('data', data => {
+              result.sendInput(data);
+            });
+            const sub = result.output.subscribe((out) => {
+              terminal.write(out);
+            });
+            result.onClose().then(() => {
+              sub.unsubscribe();
+              terminal.clear();
+              terminal.writeln('Disconnected from server');
+            });
+          }, err => {
+            terminal.clear();
+            terminal.writeln('Failed to connect to server!');
+            console.log('createconsole', err);
+          });
       });
-      const sub = result.output.subscribe((out) => {
-        this._terminal.write(out);
-      });
-      result.onClose().then(() => {
-        sub.unsubscribe();
-        this._terminal.clear();
-        this._terminal.writeln('Disconnected from server');
-      });
-    }, err => {
-      this._terminal.clear();
-      this._terminal.writeln('Failed to connect to server!');
-      console.log('createconsole', err);
-    });
   }
 }
