@@ -636,6 +636,16 @@ to the same ref</pre>
       <pre>$ git config --global gpg.x509.program smimesign
 $ git config --global gpg.format x509</pre>
   </slide>
+  <slide
+    scale="1"
+    title="Tag Signing"
+  >
+    <pre>$ git tag -s v0.13.37</pre>
+    This will add a PGP signature to the end of the tag.
+
+    <pre>$ git tag -v v0.13.37</pre>
+    You can verify the signed tag, if you have the matching public key.
+  </slide>
 </chapter>
 <chapter>
   <slide
