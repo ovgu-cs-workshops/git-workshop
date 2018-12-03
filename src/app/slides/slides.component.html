@@ -621,11 +621,21 @@ to the same ref</pre>
     scale="1"
     title="Commit Signing (GPG)"
   >
-    <pre>$ git config --global user.signingkey 3AA5C34371567BD2</pre>
-    <ul>
-      <li>You wanna use this.</li>
-      <li>Good integration in Linux operating systems.</li>
-    </ul>
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <pre>$ git config --global \
+  user.signingkey 3AA5C34371567BD2</pre>
+        <ul>
+          <li>You wanna use this.</li>
+          <li>Good integration in Linux operating systems.</li>
+        </ul>
+      </div>
+
+      <div class="layout-right">
+        <tty></tty>
+      </div>
+    </div>
+
   </slide>
 
   <slide
@@ -640,11 +650,20 @@ $ git config --global gpg.format x509</pre>
     scale="1"
     title="Tag Signing"
   >
-    <pre>$ git tag -s v0.13.37</pre>
-    This will add a PGP signature to the end of the tag.
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <pre>$ git tag -s v0.13.37</pre>
+        This will add a PGP signature to the end of the tag.
 
-    <pre>$ git tag -v v0.13.37</pre>
-    You can verify the signed tag, if you have the matching public key.
+        <pre>$ git tag -v v0.13.37</pre>
+        You can verify the signed tag, if you have the matching public key.
+      </div>
+
+      <div class="layout-right">
+        <tty></tty>
+      </div>
+    </div>
+
   </slide>
 </chapter>
 <chapter>
