@@ -207,7 +207,9 @@ $ git config --global core.editor nano</pre>
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
-          <li>Open or create a new file: <pre>$ nano my-file.txt</pre></li>
+          <li>Open or create a new file:
+            <pre>$ nano my-file.txt</pre>
+          </li>
           <li>Save a file: <code>Ctrl+O</code></li>
           <li>Quit Nano <code>Ctrl+X</code></li>
         </ul>
@@ -599,7 +601,43 @@ to the same ref</pre>
       <tty></tty>
     </div>
   </slide>
+</chapter>
+<chapter>
+  <slide
+    scale="1"
+    title="Commit Signing"
+  >
+    <p>You can sign your commits!</p>
+    <ul>
+      <li>Why? It is quite easy to pretend to be someone else.</li>
+      <li>Do you remember how you created your identity?</li>
+      <li>You could pretend to be Linus Torvalds.</li>
+      <li>You can sign your commits with your GPG key or your S/MIME key.</li>
+    </ul>
 
+  </slide>
+
+  <slide
+    scale="1"
+    title="Commit Signing (GPG)"
+  >
+    <pre>$ git config --global user.signingkey 3AA5C34371567BD2</pre>
+    <ul>
+      <li>You wanna use this.</li>
+      <li>Good integration in Linux operating systems.</li>
+    </ul>
+  </slide>
+
+  <slide
+
+    scale="1"
+    title="Commit Signing (S/MIME)"
+  >
+      <pre>$ git config --global gpg.x509.program smimesign
+$ git config --global gpg.format x509</pre>
+  </slide>
+</chapter>
+<chapter>
   <slide
   title="Forking Workflow">
       <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
@@ -825,3 +863,33 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
 
   <!--end of willys part-->
 </chapter>
+
+<!--
+     * [1] Add gitignore slide
+     * [3] branches / tags
+     * [6] merge vs. rebase / workflows
+     * [2] checkout/revert/reset/clean
+     * [2] rewriting history
+     * [?] cherry picking
+
+     rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+     merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+  centralized workflow:
+   - one master branch
+   - small team sizes
+   - rebase
+   - linear history
+
+  feature branching:
+   - feature development on dedicated branch
+   - not disturbing the main code base
+   - master should not contain broken code
+
+  forking workflow:
+   - each developer has a local and a remote repository
+
+  gitflow workflow:
+   - large projects with scheduled release cycles
+   - master, hotfix, develop, feature, release
+-->
