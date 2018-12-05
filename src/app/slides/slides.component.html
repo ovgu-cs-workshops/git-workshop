@@ -6,20 +6,20 @@
       <div class="layout-left">
         <h1>Git Workshop</h1>
         <h3>
-          Johann Wagner
-          <br>
-          Martin Koppehel
-          <br>
-          Johannes Wünsche
-          <br>
           Fin Christensen
           <br>
           Willy Failla
+          <br>
+          Martin Koppehel
+          <br>
+          Johann Wagner
+          <br>
+          Johannes Wünsche
         </h3>
       </div>
 
       <div class="layout-right" style="align-self: center;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg">
+        <img src="assets/Git-logo.svg">
       </div>
     </div>
   </slide>
@@ -46,15 +46,8 @@
   <slide
     scale="1"
     title="Why version control?">
-    <div class="layout-2">
-      <img class="layout-center-top" src="./assets/version-control.svg">
-      <div class="layout-center-bottom">
-        <ul>
-          <li>Protects your sourcecode from loss or damage</li>
-          <li>Enables collaborative and concurrent work</li>
-          <li>Revert your sourcecode to a previous state</li>
-        </ul>
-      </div>
+    <div class="layout-1">
+      <img class="layout-center" src="./assets/version-control.svg">
     </div>
   </slide>
 
@@ -76,9 +69,6 @@
             <li>Scales well for all project sizes</li>
           </ul>
         </ul>
-        <blockquote>
-          <code>git</code> is <b>not</b> easy to learn and hard to use correctly
-        </blockquote>
       </div>
       <div class="layout-right" style="text-align: center;">
         <img height="600" src="assets/git_2x.png">
@@ -94,8 +84,8 @@
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
-          <li>Git projects are hold in "repositories"</li>
-          <li>A git repository holds all the history of the project</li>
+          <li>Git projects are hold in <code>repositories</code></li>
+          <li>A Git repository holds all the history of the project</li>
           <li>History is hold in the <code>.git</code> folder in your project root</li>
         </ul>
       </div>
@@ -112,10 +102,8 @@
     <div class="layout-2">
       <div class="layout-top">
         <ul>
-          <li>The Git history ist managed in "branches"</li>
-          <li>Branches can be seen as timelines</li>
-          <li>A branch is diverted from a parent branch</li>
-          <li>Branches are managing "commits"</li>
+          <li>The Git history is managed in <code>branches</code></li>
+          <li>Branches are managing <code>commits</code></li>
           <li>Default branch: <code>master</code></li>
         </ul>
       </div>
@@ -129,20 +117,9 @@
   <slide
     scale="1"
     title="Basics: What is a commit?">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <ul>
-          <li>A commit is</li>
-          <ul>
-            <li>A node in a branch</li>
-            <li>A "diff" of code changes that are added to the history</li>
-            <li>Some metadata such as author and the commit message</li>
-          </ul>
-        </ul>
-      </div>
-
-      <div class="layout-right">
-        <img src="assets/diff.png">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img height="650" src="assets/diff.png">
       </div>
     </div>
   </slide>
@@ -153,11 +130,9 @@
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
-          <li>Commits can be marked with a "tag"</li>
-          <li>A tag is a unique identifier pointing on a commit</li>
-          <li>Are usually used to mark releases of a software</li>
+          <li>Commits can be marked with a <code>tag</code></li>
+          <li>A tag is an unique identifier pointing on a commit</li>
           <li>A tag consists of a name and a message</li>
-          <li>The commit <code>3</code> introduces the tag <code>v0.1.0</code> on branch <code>master</code></li>
         </ul>
       </div>
 
@@ -176,22 +151,17 @@
   <slide
     scale="1"
     title="Basics: Summing it Up">
-    <div class="layout-1x1">
-      <div class="layout-left">
+    <div class="layout-1">
+      <div class="layout-center">
         <ul>
           <li>A repository is made up of one or more branches</li>
           <li>Branches can exist side by side</li>
           <li>Branches are made up of commits that build the history of your project</li>
-          <li>Commits are holding the actual "code changes" in the history</li>
+          <li>Commits are holding the actual code changes in the history</li>
         </ul>
-      </div>
-
-      <div class="layout-right" style="text-align: center; align-self: center; padding-bottom: 2em;">
-        <img width="900" src="assets/history.png">
       </div>
     </div>
   </slide>
-
 </chapter>
 
 <chapter>
@@ -205,7 +175,7 @@
           Open <a href="https://workshop.pattig.rocks">https://workshop.pattig.rocks</a> in your web-browser!
         </p>
         <p>
-          This will open up a terminal with all tools preinstalled!
+          This will open up a terminal with all tools pre-installed!
         </p>
       </div>
 
@@ -302,16 +272,16 @@ $ git config --global core.editor nano</pre>
       <div class="layout-center">
         <pre>Short description in imperative - 70 columns max width ---------------
 
-  Long description ------- 80 chars wide -----------------------------------------
-  # Please enter the commit message for your changes. Lines starting
-  # with '#' will be ignored, and an empty message aborts the commit.
-  # On branch master
-  #
-  # Initial commit
-  #
-  # Changes to be committed:
-  #	new file:   README.md
-  #</pre>
+Long description ------- 80 chars wide -----------------------------------------
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   README.md
+#</pre>
       </div>
     </div>
   </slide>
@@ -370,206 +340,6 @@ $ git config --global core.editor nano</pre>
         <tty></tty>
       </div>
     </div>
-
-</slide>
-
-<!--Willys part order 200->300-->
-
-<slide order="200" scale="1" title="Rewrite History">
-    <ul>
-        <li><b>!Danger!</b> advanced tpoic</li>
-        <li>if local history changes it needs to be force pushed</li>
-        <li>force pushing is not good</li>
-        <li>will result in other peoples local copy being out of sync with the remote</li>
-    </ul>
-</slide>
-
-<slide order="201" scale="1" title="how to rewrite history?">
-    easiest way is to use:<br>
-
-    <pre>% git remote -v
- origin https://github.com/elementary/calendar.git (fetch)
- origin https://github.com/elementary/calendar.git (push)
-% git rebase -i b55e6eb
- successfully rebased and updated refs/heads/master.</pre>
-
-</slide>
-
-<slide order="220" scale="1" title="Fix">
-<pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-pick e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-</slide>
-
-<slide order="221" scale="1" title="Fix">
-<pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-f e2fbfd9 Translated using Weblate (Japanese)
-f 343f2ba Translated using Weblate (Japanese)
-f 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-</slide>
-
-<slide order="asdf" scale="1" title="Fix">
-  <history>
-    master@commit 1 commit;
-    master@commit 2 commit;
-    master@commit 3 commit;
-    master@commit 4 commit;
-    master@commit 5 commit;
-  </history>
-</slide>
-
-<slide order="asdf" scale="1" title="Fix">
-  <history>
-    master@commit 1 commit;
-    master@commit 2-4 commit;
-    master@commit 5 commit;
-  </history>
-</slide>
-
-<slide order="220" scale="1" title="Reword">
-<pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-r e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-</slide>
-
-<slide order="230" scale="1" title="Reword">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <history>
-        master@commit 1;
-        master@commit 2;
-        master@commit 3;
-        master@commit 4;
-        master@commit 5;
-      </history>
-    </div>
-    <div class="layout-right">
-      <history>
-        master@commit 1;
-        master@commit 2;
-        master@reword;
-        master@commit 4;
-        master@commit 5;
-      </history>
-    </div>
-  </div>
-</slide>
-
-<slide order="240" scale="1" title="Drop">
-<pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-d e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-</slide>
-
-<slide order="230" scale="1" title="Reword">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <history>
-        master@commit 1;
-        master@commit 2;
-        master@commit 3;
-        master@commit 4;
-        master@commit 5;
-      </history>
-    </div>
-    <div class="layout-right">
-      <history>
-        master@commit 1;
-        master@commit 2;
-        master@commit 4;
-        master@commit 5;
-      </history>
-    </div>
-  </div>
-</slide>
-
-<slide order="250" scale="1" title="Revert">
-<li>does not change history</li>
-<li>adds new commit in which it will try to remove changes that were applied in
-the commit that is passed</li>
-</slide>
-
-<slide order="250" scale="1" title="Reset">
-<li>changes history</li>
-<li>moves the current HEAD</li>
-</slide>
-
-<slide order="270" scale="1" title="Cherrypick">
-  <div class="layout-1x1">
-    <div class="layout-left">
-      <history>
-        master@commit 1 commit;
-        master@commit 2 commit;
-        master@commit 3 commit;
-        dev@dev commit 1 commit;
-        dev@dev commit 2 commit;
-        master@commit 4 commit;
-      </history>
-    </div>
-    <div class="layout-right">
-      <history>
-        master@commit 1 commit;
-        master@commit 2 commit;
-        master@commit 3 commit;
-        dev@dev commit 1 commit;
-        dev@dev commit 2 commit;
-        master@commit 4 commit;
-        dev@dev commit 4 commit;
-      </history>
-    </div>
-  </div>
-</slide>
-
-<slide order="270" scale="1" title="Cherrypick">
-  <history>
-    master@commit 1 commit;
-    master@commit 2 commit;
-    master@commit 3 commit;
-    dev@dev commit 1 commit;
-    dev@dev commit 2 commit;
-    master@commit 4 commit;
-    >dev@commit 4 commit;
-  </history>
-</slide>
-
-<!--end of willys part-->
-<chapter>
-  <slide
-    scale="1"
-    title="Ok, and how do I use these branches and tags now?">
-  </slide>
-
-  <slide
-    scale="1"
-    title="How a merge works">
-  </slide>
-
-  <slide
-    scale="1"
-    title="How a rebase works">
   </slide>
 
   <slide
@@ -582,13 +352,240 @@ the commit that is passed</li>
         </p>
 
         <pre>$ git clone https://github.com/octocat/Hello-World.git
-  $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
+$ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
       </div>
       <div class="layout-center-bottom">
         <tty></tty>
       </div>
     </div>
   </slide>
+</chapter>
+
+<chapter>
+  <slide
+    scale="1"
+    title="Ok, and how do I use these branches and tags now?">
+    <div class="layout-2">
+      <div class="layout-top">
+        <ul>
+          <li>How do I use branches in my workflow?</li>
+          <li>Let's see what else you can do with branches?</li>
+        </ul>
+      </div>
+
+      <div class="layout-bottom">
+        <img src="assets/git-merge-rebase.svg">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="How a merge works">
+    <history>
+      >master@Fix compiler errors;
+      >logging@Add logging to application;
+      >master@Add translation to german;
+      logging@Add support for log levels;
+      >logging->master@Merge branch 'logging' into 'master';
+    </history>
+  </slide>
+
+  <slide
+    scale="1"
+    title="How a rebase works">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img height="650" src="assets/rebase.svg">
+      </div>
+    </div>
+  </slide>
+</chapter>
+
+<chapter>
+  <!--Willys part order 200->300-->
+
+  <slide order="200" scale="1" title="Rewrite History">
+    <ul>
+      <li><b>!Danger!</b> advanced tpoic</li>
+      <li>if local history changes it needs to be force pushed</li>
+      <li>force pushing is not good</li>
+      <li>will result in other peoples local copy being out of sync with the remote</li>
+    </ul>
+  </slide>
+
+  <slide order="201" scale="1" title="how to rewrite history?">
+    easiest way is to use:<br>
+
+    <pre>% git remote -v
+ origin https://github.com/elementary/calendar.git (fetch)
+ origin https://github.com/elementary/calendar.git (push)
+% git rebase -i b55e6eb
+ successfully rebased and updated refs/heads/master.</pre>
+
+  </slide>
+
+  <slide order="220" scale="1" title="Fix">
+    <pre>pick e842b66 Remove unused match_keycode method (#238)
+pick 38ac20f Replace most of used deprecated methods (#237)
+pick 12d8409 Translated using Weblate (Thai)
+pick 81ef40a Translated using Weblate (Japanese)
+pick e2fbfd9 Translated using Weblate (Japanese)
+pick 343f2ba Translated using Weblate (Japanese)
+pick 470dc17 Translated using Weblate (Japanese)
+pick 280a4d9 Translated using Weblate (Portuguese)
+pick a6618ed Translated using Weblate (Marathi)</pre>
+  </slide>
+
+  <slide order="221" scale="1" title="Fix">
+    <pre>pick e842b66 Remove unused match_keycode method (#238)
+pick 38ac20f Replace most of used deprecated methods (#237)
+pick 12d8409 Translated using Weblate (Thai)
+pick 81ef40a Translated using Weblate (Japanese)
+f e2fbfd9 Translated using Weblate (Japanese)
+f 343f2ba Translated using Weblate (Japanese)
+f 470dc17 Translated using Weblate (Japanese)
+pick 280a4d9 Translated using Weblate (Portuguese)
+pick a6618ed Translated using Weblate (Marathi)</pre>
+  </slide>
+
+  <slide order="asdf" scale="1" title="Fix">
+    <history>
+      master@commit 1 commit;
+      master@commit 2 commit;
+      master@commit 3 commit;
+      master@commit 4 commit;
+      master@commit 5 commit;
+    </history>
+  </slide>
+
+  <slide order="asdf" scale="1" title="Fix">
+    <history>
+      master@commit 1 commit;
+      master@commit 2-4 commit;
+      master@commit 5 commit;
+    </history>
+  </slide>
+
+  <slide order="220" scale="1" title="Reword">
+    <pre>pick e842b66 Remove unused match_keycode method (#238)
+pick 38ac20f Replace most of used deprecated methods (#237)
+pick 12d8409 Translated using Weblate (Thai)
+pick 81ef40a Translated using Weblate (Japanese)
+r e2fbfd9 Translated using Weblate (Japanese)
+pick 343f2ba Translated using Weblate (Japanese)
+pick 470dc17 Translated using Weblate (Japanese)
+pick 280a4d9 Translated using Weblate (Portuguese)
+pick a6618ed Translated using Weblate (Marathi)</pre>
+  </slide>
+
+  <slide order="230" scale="1" title="Reword">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <history>
+          master@commit 1;
+          master@commit 2;
+          master@commit 3;
+          master@commit 4;
+          master@commit 5;
+        </history>
+      </div>
+      <div class="layout-right">
+        <history>
+          master@commit 1;
+          master@commit 2;
+          master@reword;
+          master@commit 4;
+          master@commit 5;
+        </history>
+      </div>
+    </div>
+  </slide>
+
+  <slide order="240" scale="1" title="Drop">
+    <pre>pick e842b66 Remove unused match_keycode method (#238)
+pick 38ac20f Replace most of used deprecated methods (#237)
+pick 12d8409 Translated using Weblate (Thai)
+pick 81ef40a Translated using Weblate (Japanese)
+d e2fbfd9 Translated using Weblate (Japanese)
+pick 343f2ba Translated using Weblate (Japanese)
+pick 470dc17 Translated using Weblate (Japanese)
+pick 280a4d9 Translated using Weblate (Portuguese)
+pick a6618ed Translated using Weblate (Marathi)</pre>
+  </slide>
+
+  <slide order="230" scale="1" title="Reword">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <history>
+          master@commit 1;
+          master@commit 2;
+          master@commit 3;
+          master@commit 4;
+          master@commit 5;
+        </history>
+      </div>
+      <div class="layout-right">
+        <history>
+          master@commit 1;
+          master@commit 2;
+          master@commit 4;
+          master@commit 5;
+        </history>
+      </div>
+    </div>
+  </slide>
+
+  <slide order="250" scale="1" title="Revert">
+    <li>does not change history</li>
+    <li>adds new commit in which it will try to remove changes that were applied in
+      the commit that is passed</li>
+  </slide>
+
+  <slide order="250" scale="1" title="Reset">
+    <li>changes history</li>
+    <li>moves the current HEAD</li>
+  </slide>
+
+  <slide order="270" scale="1" title="Cherrypick">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <history>
+          master@commit 1 commit;
+          master@commit 2 commit;
+          master@commit 3 commit;
+          dev@dev commit 1 commit;
+          dev@dev commit 2 commit;
+          master@commit 4 commit;
+        </history>
+      </div>
+      <div class="layout-right">
+        <history>
+          master@commit 1 commit;
+          master@commit 2 commit;
+          master@commit 3 commit;
+          dev@dev commit 1 commit;
+          dev@dev commit 2 commit;
+          master@commit 4 commit;
+          dev@dev commit 4 commit;
+        </history>
+      </div>
+    </div>
+  </slide>
+
+  <slide order="270" scale="1" title="Cherrypick">
+    <history>
+      master@commit 1 commit;
+      master@commit 2 commit;
+      master@commit 3 commit;
+      dev@dev commit 1 commit;
+      dev@dev commit 2 commit;
+      master@commit 4 commit;
+      >dev@commit 4 commit;
+    </history>
+  </slide>
+
+  <!--end of willys part-->
 </chapter>
 
 <chapter>
