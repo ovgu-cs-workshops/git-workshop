@@ -25,16 +25,7 @@
   </slide>
 
   <slide title="Agenda">
-    <div class="layout-1">
-      <div class="layout-center">
-        <ol>
-          <li>Introduction to Version Control & Git</li>
-          <li>Interactive Guide to Git Basics</li>
-          <li>Most Common Git Workflows</li>
-          <li>Advanced Trick With Git</li>
-        </ol>
-      </div>
-    </div>
+    <history [setup]="agenda"></history>
   </slide>
 </chapter>
 
@@ -127,12 +118,7 @@
       </div>
 
       <div class="layout-right">
-        <history>
-          master@Initial commit;
-          master@Add fancy code;
-          master:v0.1.0@Add documentation;
-          master@Work on new feature;
-          master@Fix major bugs;
+        <history [setup]="whatIsATag">
         </history>
       </div>
     </div>
@@ -372,13 +358,7 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
   <slide
     scale="1"
     title="How a merge works">
-    <history>
-      >master@Fix compiler errors;
-      >logging@Add logging to application;
-      >master@Add translation to german;
-      logging@Add support for log levels;
-      >logging->master@Merge branch 'logging' into 'master';
-    </history>
+    <history [setup]="howAMergeWorks"></history>
   </slide>
 
   <slide
@@ -440,21 +420,11 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
   <slide order="asdf" scale="1" title="Fix">
-    <history>
-      master@commit 1 commit;
-      master@commit 2 commit;
-      master@commit 3 commit;
-      master@commit 4 commit;
-      master@commit 5 commit;
-    </history>
+    <history [setup]="fix1"></history>
   </slide>
 
   <slide order="asdf" scale="1" title="Fix">
-    <history>
-      master@commit 1 commit;
-      master@commit 2-4 commit;
-      master@commit 5 commit;
-    </history>
+    <history [setup]="fix2"></history>
   </slide>
 
   <slide order="220" scale="1" title="Reword">
@@ -472,22 +442,10 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="230" scale="1" title="Reword">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 3;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@reword;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword2"></history>
       </div>
     </div>
   </slide>
@@ -507,21 +465,10 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="230" scale="1" title="Reword">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 3;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword3"></history>
       </div>
     </div>
   </slide>
@@ -540,39 +487,12 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="270" scale="1" title="Cherrypick">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1 commit;
-          master@commit 2 commit;
-          master@commit 3 commit;
-          dev@dev commit 1 commit;
-          dev@dev commit 2 commit;
-          master@commit 4 commit;
-        </history>
+        <history [setup]="cherrypick1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1 commit;
-          master@commit 2 commit;
-          master@commit 3 commit;
-          dev@dev commit 1 commit;
-          dev@dev commit 2 commit;
-          master@commit 4 commit;
-          dev@dev commit 4 commit;
-        </history>
+        <history [setup]="cherrypick2"></history>
       </div>
     </div>
-  </slide>
-
-  <slide order="270" scale="1" title="Cherrypick">
-    <history>
-      master@commit 1 commit;
-      master@commit 2 commit;
-      master@commit 3 commit;
-      dev@dev commit 1 commit;
-      dev@dev commit 2 commit;
-      master@commit 4 commit;
-      >dev@commit 4 commit;
-    </history>
   </slide>
 
   <!--end of willys part-->
@@ -651,6 +571,12 @@ to the same ref</pre>
 |/
 |  master
 </pre>
+  </slide>
+
+  <slide
+    scale="1"
+    title="GitFlow Workflow">
+    <history [setup]="gitFlowWorkflow"></history>
   </slide>
 </chapter>
 
