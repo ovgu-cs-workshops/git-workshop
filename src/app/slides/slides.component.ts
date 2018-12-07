@@ -64,13 +64,17 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public whatIsATag(config: any): void {
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
+    (<any> graph).template.commit.tag.spacingX = 70;
     const master = graph.branch('master');
     master.commit('Initial commit');
     master.commit('Add fancy code');
     master.commit('Add documentation');
     master.tag('v0.1.0');
     master.commit('Fix major bugs');
+
+    console.log(graph);
   }
 
   public howAMergeWorks(config: any): void {

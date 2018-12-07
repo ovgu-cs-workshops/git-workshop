@@ -24,9 +24,9 @@ export class HistoryComponent implements AfterViewInit {
 
   public ngAfterViewInit(): void {
 		const config = {
-      template: new GitGraph.Template(<any>
+      template: new GitGraph.Template(
 				{
-          colors: ["#979797", "#008fb5", "#f1c109", "#673ab7"],
+          colors: ["#8bc34a", "#008fb5", "#f1c109", "#673ab7"],
           branch: {
             lineWidth: 12,
             spacingX: 50,
