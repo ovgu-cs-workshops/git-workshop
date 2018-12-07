@@ -133,6 +133,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public reword1(config: any): void {
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');
@@ -143,7 +144,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public reword2(config: any): void {
-    config
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');
@@ -154,6 +155,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public reword3(config: any): void {
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');

@@ -23,7 +23,7 @@
     "@angular/router": "^7.0.3",
     "core-js": "^2.5.7",
     "gitgraph.js": "^1.14.0",
-    "impress.js": "https://github.com/ovgu-cs-workshops/impress.js",
+    "impress.js": "^1.0.0",
     "ng2-impress": "^1.0.5",
     "normalize.css": "^8.0.1",
     "rxjs": "^6.3.3",

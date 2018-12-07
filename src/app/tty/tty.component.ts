@@ -16,8 +16,13 @@ export class TtyComponent implements AfterViewInit {
   @ViewChild('terminal')
   private _terminalElement: ElementRef;
   private _terminal: Terminal;
-  @HostListener('click') onClick() {
-    document.allowSkip = !document.allowSkip;
+  @HostListener('keydown', ['$event']) onClick(event) {
+    console.log('foo');
+    event.stopPropagation();
+  }
+  @HostListener('keyup', ['$event']) onKeyUp(event) {
+    event.stopPropagation();
+    // This fix has been done by myself all alone - Fin
   }
 
   constructor(private _backend: BackendService) {
@@ -25,7 +30,7 @@ export class TtyComponent implements AfterViewInit {
       fontFamily: 'Roboto Mono',
       fontSize: 32,
       cols: 54,
-      rows: 10,
+      rows: 5,
     });
   }
 

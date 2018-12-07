@@ -18,9 +18,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    document.body.addEventListener('keydown', () => {
-      console.log('foo');
-    }, true);
     document.allowSkip = true;
     impress().init();
   }
