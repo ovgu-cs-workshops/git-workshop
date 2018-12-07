@@ -1,7 +1,9 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Terminal } from 'xterm';
 import * as WebfontLoader from 'xterm-webfont';
+
+declare var document: any;
 
 Terminal.applyAddon(WebfontLoader)
 ;
@@ -14,6 +16,9 @@ export class TtyComponent implements AfterViewInit {
   @ViewChild('terminal')
   private _terminalElement: ElementRef;
   private _terminal: Terminal;
+  @HostListener('click') onClick() {
+    document.allowSkip = !document.allowSkip;
+  }
 
   constructor(private _backend: BackendService) {
     this._terminal = new Terminal({
