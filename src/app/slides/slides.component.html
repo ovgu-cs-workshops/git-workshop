@@ -372,6 +372,131 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
   </slide>
 </chapter>
 
+
+<chapter>
+  <slide
+    scale="1"
+    title="Why Workflows">
+
+    <div class="layout-center">
+      <pre>$ git add -a
+$ git commit -m "Done some important work(not tested)"
+$ git push --force</pre>
+    </div>
+
+  </slide>
+
+  <slide
+    scale="1"
+    title="Literally 5 minutes later">
+    <div class="layout-center" style="text-align: center">
+      <img src="../../assets/workflow_burning.png">
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Centralized Workflow">
+    <div style="layout-left">
+      <div style="text-align: center">
+        <history [setup]="central"></history>
+      </div>
+    </div>
+    <div style="layout-right">
+    <ul>
+      <li>One branch</li>
+      <li>No concurrent working</li>
+    </ul>
+  </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Graduation Workflow">
+    <ul>
+      <li>Idea is the division into multiple stages that commits go through until they reach a release</li>
+      <li>maintenance: commits contained in the next update for a released stable version</li>
+      <li>master: commits contained in the next release</li>
+      <li>next: commits being tested for master</li>
+      <li>proposed-updates: commits not ready for integration</li>
+    </ul>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center">
+      So what if I want to introduce a new awesome feature?
+      Simple! Push it to proposed updates!
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center-top">
+      <pre>
+Updates were rejected because the remote contains work that you do
+not have locally. This is usually caused by another repository pushing
+to the same ref</pre>
+      <div class="layout-center-bottom" style="text-align: center">
+        <img src="../../assets/workflow_denied.png">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Topic Branches">
+    Solution? Create branches for new features!
+    <tty></tty>
+    <pre>
+| | [new branch]  feature/awesome_new_thing
+|/
+|  master
+</pre>
+  </slide>
+
+  <slide
+    scale="1"
+    title="GitFlow Workflow">
+    <history [setup]="gitFlowWorkflow"></history>
+  </slide>
+</chapter>
+
+  <!--
+       * [1] Add gitignore slide
+       * [3] branches / tags
+       * [6] merge vs. rebase / workflows
+       * [2] checkout/revert/reset/clean
+       * [2] rewriting history
+       * [?] cherry picking
+
+       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+    centralized workflow:
+     - one master branch
+     - small team sizes
+     - rebase
+     - linear history
+
+    feature branching:
+     - feature development on dedicated branch
+     - not disturbing the main code base
+     - master should not contain broken code
+
+    forking workflow:
+     - each developer has a local and a remote repository
+
+    gitflow workflow:
+     - large projects with scheduled release cycles
+     - master, hotfix, develop, feature, release
+  -->
+
+
+
+
 <chapter>
   <!--Willys part order 200->300-->
 
@@ -504,109 +629,3 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
     title="TTY">
     <tty></tty>
   </slide>
-
-<chapter>
-  <slide
-    scale="1"
-    title="Why Workflows">
-
-    <div class="layout-center">
-      <pre>$ git add -a
-$ git commit -m "Done some important work(not tested)"
-$ git push --force</pre>
-    </div>
-
-  </slide>
-
-  <slide
-    scale="1"
-    title="Literally 5 minutes later">
-    <div class="layout-center" style="text-align: center">
-      <img src="../../assets/workflow_burning.png">
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Graduation Workflow">
-    <ul>
-      <li>Idea is the division into multiple stages that commits go through until they reach a release</li>
-      <li>maintenance: commits contained in the next update for a released stable version</li>
-      <li>master: commits contained in the next release</li>
-      <li>next: commits being tested for master</li>
-      <li>proposed-updates: commits not ready for integration</li>
-    </ul>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Workflows">
-    <div class="layout-center">
-      So what if I want to introduce a new awesome feature?
-      Simple! Push it to proposed updates!
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Workflows">
-    <div class="layout-center-top">
-      <pre>
-Updates were rejected because the remote contains work that you do
-not have locally. This is usually caused by another repository pushing
-to the same ref</pre>
-      <div class="layout-center-bottom" style="text-align: center">
-        <img src="../../assets/workflow_denied.png">
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Topic Branches">
-    Solution? Create branches for new features!
-    <tty></tty>
-    <pre>
-| | [new branch]  feature/awesome_new_thing
-|/
-|  master
-</pre>
-  </slide>
-
-  <slide
-    scale="1"
-    title="GitFlow Workflow">
-    <history [setup]="gitFlowWorkflow"></history>
-  </slide>
-</chapter>
-
-  <!--
-       * [1] Add gitignore slide
-       * [3] branches / tags
-       * [6] merge vs. rebase / workflows
-       * [2] checkout/revert/reset/clean
-       * [2] rewriting history
-       * [?] cherry picking
-
-       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
-
-    centralized workflow:
-     - one master branch
-     - small team sizes
-     - rebase
-     - linear history
-
-    feature branching:
-     - feature development on dedicated branch
-     - not disturbing the main code base
-     - master should not contain broken code
-
-    forking workflow:
-     - each developer has a local and a remote repository
-
-    gitflow workflow:
-     - large projects with scheduled release cycles
-     - master, hotfix, develop, feature, release
-  -->
-</chapter>

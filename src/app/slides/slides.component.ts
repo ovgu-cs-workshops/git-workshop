@@ -143,6 +143,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public reword2(config: any): void {
+    config
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');
@@ -184,5 +185,17 @@ export class SlidesComponent implements AfterViewInit {
     dev.commit('dev commit 2');
     master.commit('commit 4');
     dev.commit('dev commit 4');
+  }
+
+  public central(config: any): void {
+    const graph = new GitGraph({
+      ...config,
+      orientation: 'vertical-reverse',
+    });
+    const master = graph.branch('master');
+    master.commit('Initial commit');
+    master.commit('Add cool feature');
+    master.commit('Oh no');
+    master.commit('Go back');
   }
 }
