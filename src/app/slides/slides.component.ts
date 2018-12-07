@@ -44,7 +44,7 @@ export class SlidesComponent implements AfterViewInit {
       orientation: 'vertical',
     });
     const master = graph.branch('master');
-    master.commit('Basics')
+    master.commit('Basics');
     const basics = master.branch('basics');
     basics.commit('Introduction to Version Control & Git');
     basics.commit('Interactive Guide to Git Basics');
