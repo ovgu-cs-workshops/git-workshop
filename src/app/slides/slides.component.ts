@@ -137,6 +137,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public fix1(config: any): void {
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');
@@ -187,6 +188,7 @@ export class SlidesComponent implements AfterViewInit {
   }
 
   public cherrypick1(config: any): void {
+    config.template.commit.widthExtension = 0;
     const graph = new GitGraph(config);
     const master = graph.branch('master');
     master.commit('commit 1');
