@@ -25,16 +25,7 @@
   </slide>
 
   <slide title="Agenda">
-    <div class="layout-1">
-      <div class="layout-center">
-        <ol>
-          <li>Introduction to Version Control & Git</li>
-          <li>Interactive Guide to Git Basics</li>
-          <li>Most Common Git Workflows</li>
-          <li>Advanced Trick With Git</li>
-        </ol>
-      </div>
-    </div>
+    <history [setup]="agenda"></history>
   </slide>
 </chapter>
 
@@ -127,12 +118,7 @@
       </div>
 
       <div class="layout-right">
-        <history>
-          master@Initial commit;
-          master@Add fancy code;
-          master:v0.1.0@Add documentation;
-          master@Work on new feature;
-          master@Fix major bugs;
+        <history [setup]="whatIsATag">
         </history>
       </div>
     </div>
@@ -315,18 +301,21 @@ Long description ------- 80 chars wide -----------------------------------------
     </div>
   </slide>
 
+  <!-- Working with remotes / introduce tig -->
+  <!-- Fetching from remotes -->
+
   <slide
     scale="1"
     title="Pushing to a remote repository">
-    <div class="layout-1x1">
-      <div class="layout-left">
+    <div class="layout-2">
+      <div class="layout-top">
         <ul>
           <li>Each remote is also a git repository</li>
           <li>You can use anything as a remote</li>
           <li>Pushing is applying your local changes on the remote repo</li>
         </ul>
       </div>
-      <div class="layout-right">
+      <div class="layout-bottom">
         <tty></tty>
       </div>
     </div>
@@ -372,13 +361,7 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
   <slide
     scale="1"
     title="How a merge works">
-    <history>
-      >master@Fix compiler errors;
-      >logging@Add logging to application;
-      >master@Add translation to german;
-      logging@Add support for log levels;
-      >logging->master@Merge branch 'logging' into 'master';
-    </history>
+    <history [setup]="howAMergeWorks"></history>
   </slide>
 
   <slide
@@ -391,6 +374,119 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
     </div>
   </slide>
 </chapter>
+
+
+<chapter>
+  <slide
+    scale="1"
+    title="Why Workflows">
+
+    <div class="layout-center">
+      <pre>$ git add -a
+$ git commit -m "Done some important work(not tested)"
+$ git push --force</pre>
+    </div>
+
+  </slide>
+
+  <slide
+    scale="1"
+    title="Literally 5 minutes later">
+    <div class="layout-center" style="text-align: center">
+      <img src="../../assets/workflow_burning.png">
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Centralized Workflow">
+    <div style="layout-left">
+      <div style="text-align: center">
+        <history [setup]="central"></history>
+      </div>
+    </div>
+    <div style="layout-right">
+    <ul>
+      <li>One branch</li>
+      <li>No concurrent working</li>
+    </ul>
+  </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center">
+      So what if I want to introduce a new awesome feature?
+      Simple! Push it to proposed updates!
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Workflows">
+    <div class="layout-center-top">
+      <pre>
+Updates were rejected because the remote contains work that you do
+not have locally. This is usually caused by another repository pushing
+to the same ref</pre>
+      <div class="layout-center-bottom" style="text-align: center">
+        <img src="../../assets/workflow_denied.png">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Topic Branches">
+    Solution? Create branches for new features!
+    <tty></tty>
+    <pre>
+| | [new branch]  feature/awesome_new_thing
+|/
+|  master
+</pre>
+  </slide>
+
+  <slide
+    scale="1"
+    title="GitFlow Workflow">
+    <history [setup]="gitFlowWorkflow"></history>
+  </slide>
+</chapter>
+
+  <!--
+       * [1] Add gitignore slide
+       * [3] branches / tags
+       * [6] merge vs. rebase / workflows
+       * [2] checkout/revert/reset/clean
+       * [2] rewriting history
+       * [?] cherry picking
+
+       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+    centralized workflow:
+     - one master branch
+     - small team sizes
+     - rebase
+     - linear history
+
+    feature branching:
+     - feature development on dedicated branch
+     - not disturbing the main code base
+     - master should not contain broken code
+
+    forking workflow:
+     - each developer has a local and a remote repository
+
+    gitflow workflow:
+     - large projects with scheduled release cycles
+     - master, hotfix, develop, feature, release
+  -->
+
+
+
 
 <chapter>
   <!--Willys part order 200->300-->
@@ -440,21 +536,11 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
   <slide order="asdf" scale="1" title="Fix">
-    <history>
-      master@commit 1 commit;
-      master@commit 2 commit;
-      master@commit 3 commit;
-      master@commit 4 commit;
-      master@commit 5 commit;
-    </history>
+    <history [setup]="fix1"></history>
   </slide>
 
   <slide order="asdf" scale="1" title="Fix">
-    <history>
-      master@commit 1 commit;
-      master@commit 2-4 commit;
-      master@commit 5 commit;
-    </history>
+    <history [setup]="fix2"></history>
   </slide>
 
   <slide order="220" scale="1" title="Reword">
@@ -472,22 +558,10 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="230" scale="1" title="Reword">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 3;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@reword;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword2"></history>
       </div>
     </div>
   </slide>
@@ -507,21 +581,10 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="230" scale="1" title="Reword">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 3;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1;
-          master@commit 2;
-          master@commit 4;
-          master@commit 5;
-        </history>
+        <history [setup]="reword3"></history>
       </div>
     </div>
   </slide>
@@ -540,39 +603,12 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="270" scale="1" title="Cherrypick">
     <div class="layout-1x1">
       <div class="layout-left">
-        <history>
-          master@commit 1 commit;
-          master@commit 2 commit;
-          master@commit 3 commit;
-          dev@dev commit 1 commit;
-          dev@dev commit 2 commit;
-          master@commit 4 commit;
-        </history>
+        <history [setup]="cherrypick1"></history>
       </div>
       <div class="layout-right">
-        <history>
-          master@commit 1 commit;
-          master@commit 2 commit;
-          master@commit 3 commit;
-          dev@dev commit 1 commit;
-          dev@dev commit 2 commit;
-          master@commit 4 commit;
-          dev@dev commit 4 commit;
-        </history>
+        <history [setup]="cherrypick2"></history>
       </div>
     </div>
-  </slide>
-
-  <slide order="270" scale="1" title="Cherrypick">
-    <history>
-      master@commit 1 commit;
-      master@commit 2 commit;
-      master@commit 3 commit;
-      dev@dev commit 1 commit;
-      dev@dev commit 2 commit;
-      master@commit 4 commit;
-      >dev@commit 4 commit;
-    </history>
   </slide>
 
   <!--end of willys part-->
@@ -584,34 +620,3 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
     title="TTY">
     <tty></tty>
   </slide>
-
-  <!--
-       * [1] Add gitignore slide
-       * [3] branches / tags
-       * [6] merge vs. rebase / workflows
-       * [2] checkout/revert/reset/clean
-       * [2] rewriting history
-       * [?] cherry picking
-
-       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
-
-    centralized workflow:
-     - one master branch
-     - small team sizes
-     - rebase
-     - linear history
-
-    feature branching:
-     - feature development on dedicated branch
-     - not disturbing the main code base
-     - master should not contain broken code
-
-    forking workflow:
-     - each developer has a local and a remote repository
-
-    gitflow workflow:
-     - large projects with scheduled release cycles
-     - master, hotfix, develop, feature, release
-  -->
-</chapter>

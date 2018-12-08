@@ -1,7 +1,9 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Terminal } from 'xterm';
 import * as WebfontLoader from 'xterm-webfont';
+
+declare var document: any;
 
 Terminal.applyAddon(WebfontLoader)
 ;
@@ -14,13 +16,21 @@ export class TtyComponent implements AfterViewInit {
   @ViewChild('terminal')
   private _terminalElement: ElementRef;
   private _terminal: Terminal;
+  @HostListener('keydown', ['$event']) onClick(event) {
+    console.log('foo');
+    event.stopPropagation();
+  }
+  @HostListener('keyup', ['$event']) onKeyUp(event) {
+    event.stopPropagation();
+    // This fix has been done by myself all alone - Fin
+  }
 
   constructor(private _backend: BackendService) {
     this._terminal = new Terminal({
       fontFamily: 'Roboto Mono',
       fontSize: 32,
       cols: 54,
-      rows: 10,
+      rows: 5,
     });
   }
 
