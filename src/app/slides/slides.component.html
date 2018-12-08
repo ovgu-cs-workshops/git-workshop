@@ -492,15 +492,22 @@ to the same ref</pre>
   <!--Willys part order 200->300-->
 
   <slide order="200" scale="1" title="Rewrite History">
-    <ul>
-      <li><b>!Danger!</b> advanced tpoic</li>
-      <li>if local history changes it needs to be force pushed</li>
-      <li>force pushing is not good</li>
-      <li>will result in other peoples local copy being out of sync with the remote</li>
-    </ul>
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li><b>!Danger!</b> advanced topic</li>
+          <li>if local history changes it needs to be force pushed</li>
+          <li>force pushing should be avoided</li>
+          <li>result local copy out of sync</li>
+        </ul>
+      </div>
+      <div class="layout-right">
+        <img src="assets/git_commit.png" width=750>
+      </div>
+    </div>
   </slide>
 
-  <slide order="201" scale="1" title="how to rewrite history?">
+  <slide order="201" scale="1" title="How to Rewrite History?">
     easiest way is to use:<br>
 
     <pre>% git remote -v
@@ -536,11 +543,14 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
   <slide order="asdf" scale="1" title="Fix">
-    <history [setup]="fix1"></history>
-  </slide>
-
-  <slide order="asdf" scale="1" title="Fix">
-    <history [setup]="fix2"></history>
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <history [setup]="fix1"></history>
+      </div>
+      <div class="layout-right">
+        <history [setup]="fix2"></history>
+      </div>
+    </div>
   </slide>
 
   <slide order="220" scale="1" title="Reword">
@@ -578,7 +588,7 @@ pick 280a4d9 Translated using Weblate (Portuguese)
 pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
-  <slide order="230" scale="1" title="Reword">
+  <slide order="230" scale="1" title="Drop">
     <div class="layout-1x1">
       <div class="layout-left">
         <history [setup]="reword1"></history>
@@ -589,17 +599,6 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
     </div>
   </slide>
 
-  <slide order="250" scale="1" title="Revert">
-    <li>does not change history</li>
-    <li>adds new commit in which it will try to remove changes that were applied in
-      the commit that is passed</li>
-  </slide>
-
-  <slide order="250" scale="1" title="Reset">
-    <li>changes history</li>
-    <li>moves the current HEAD</li>
-  </slide>
-
   <slide order="270" scale="1" title="Cherrypick">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -607,6 +606,33 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
       </div>
       <div class="layout-right">
         <history [setup]="cherrypick2"></history>
+      </div>
+    </div>
+  </slide>
+
+  <slide order="250" scale="1" title="Revert">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <li>does not change history</li>
+        <li>adds new commit in which it will try to remove changes that were
+        applied in the commit that is passed</li>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide order="250" scale="1" title="Reset">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <li>changes history</li>
+        <li>moves the current HEAD</li>
+        <li><code>--soft</code> keeps changes but removes the commit structure</li>
+        <li><code>--hard</code> removes changes and commits</li>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
       </div>
     </div>
   </slide>
