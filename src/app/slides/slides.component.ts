@@ -109,9 +109,31 @@ export class SlidesComponent implements AfterViewInit {
       column: 1
     });
     release.commit('Prepare for release');
-    release.merge(master);
     develop.commit('Start new story');
+    release.merge(master);
     master.tag('v0.1.0');
+  }
+
+  public topicBranches(config: any): void {
+    const graph = new GitGraph(config);
+    const master = graph.branch(<any> {
+      name: 'master',
+      column: 1
+    });
+    master.commit('Initial commit');
+    const feature = master.branch(<any> {
+      name: 'feature/introduction',
+      column: 2
+    });
+    const f2 = master.branch(<any> {
+      name: 'feature/agenda',
+      column: 0
+    });
+    feature.commit('Add introduction');
+    f2.commit('Add fancy agenda')
+    feature.commit('Fix spelling');
+    feature.merge(master);
+    f2.merge(master)
   }
 
   public fix1(config: any): void {

@@ -16,13 +16,12 @@ export class TtyComponent implements AfterViewInit {
   @ViewChild('terminal')
   private _terminalElement: ElementRef;
   private _terminal: Terminal;
+  // Should be enough to avoid any bubbling keyevents to propagate to impress
   @HostListener('keydown', ['$event']) onClick(event) {
-    console.log('foo');
     event.stopPropagation();
   }
   @HostListener('keyup', ['$event']) onKeyUp(event) {
     event.stopPropagation();
-    // This fix has been done by myself all alone - Fin
   }
 
   constructor(private _backend: BackendService) {

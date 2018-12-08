@@ -1,9 +1,8 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 import 'impress.js';
 
 declare var impress: any;
-declare var document: any;
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,6 @@ declare var document: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  @HostListener('keydown', ['$event']) onKey(event) {
-    event.stopPropagation();
-  }
   constructor() {
   }
 
