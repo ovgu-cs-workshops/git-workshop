@@ -219,7 +219,6 @@ export class SlidesComponent implements AfterViewInit {
     const master = graph.branch('master');
     master.commit('Initial commit');
     master.commit('Add cool feature');
-    master.commit('Oh no');
-    master.commit('Go back');
+    master.commit('And even more');
   }
 }

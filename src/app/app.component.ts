@@ -14,7 +14,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    document.allowSkip = true;
     impress().init();
   }
 }
