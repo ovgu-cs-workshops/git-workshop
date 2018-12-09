@@ -167,14 +167,13 @@
     <div class="layout-1x1">
       <div class="layout-left">
         <div>
-          Create a new directory and <code>cd</code> into it:
+          Create a new git repository
         </div>
-        <pre>$ mkdir my-project
-$ cd my-project</pre>
+        <pre>$ git init my-project</pre>
         <div>
-          Create a new repo in this directory:
+          And <code>cd</code> into it
+          <pre>$ cd my-project</pre>
         </div>
-        <pre>$ git init</pre>
       </div>
       <div class="layout-right">
         <tty></tty>
@@ -226,13 +225,15 @@ $ git config --global core.editor nano</pre>
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
-          <li>Add a <code>README</code> to the git repo</li>
+          <li>Add a <code>README.md</code> to the git repo</li>
           <li>Stage the new file with <code>git add</code></li>
           <ul>
             <li>Staged files are files that are marked for commit</li>
           </ul>
-          <li>Commit all staged files</li>
         </ul>
+        <pre>$ nano README.md
+$ git status
+$ git add README.md</pre>
       </div>
 
       <div class="layout-right">
@@ -243,7 +244,7 @@ $ git config --global core.editor nano</pre>
 
   <slide
     scale="1"
-    title="Now tell your fellows what you did...">
+    title="Now tell other people what you did">
     <div class="layout-1">
       <div class="layout-center">
         <pre>Short description in imperative - 70 columns max width ---------------
@@ -289,7 +290,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="But I don't want all the files!">
+    title="But I don't want all the files in git!">
     <div class="layout-2">
       <div class="layout-center-top">
         There is magic for that! A file called <code>.gitignore</code>
@@ -300,21 +301,144 @@ Long description ------- 80 chars wide -----------------------------------------
       </div>
     </div>
   </slide>
+</chapter>
 
-  <!-- Working with remotes / introduce tig -->
-  <!-- Fetching from remotes -->
+<chapter>
+  <slide
+    scale="1"
+    title="Publishing your changes">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img width="1400" src="assets/remote-comic.svg">
+      </div>
+    </div>
+  </slide>
 
   <slide
     scale="1"
-    title="Pushing to a remote repository">
-    <div class="layout-2">
-      <div class="layout-top">
+    title="What is a remote?">
+    <div class="layout-1x1">
+      <div class="layout-left">
         <ul>
-          <li>Each remote is also a git repository</li>
-          <li>You can use anything as a remote</li>
-          <li>Pushing is applying your local changes on the remote repo</li>
+          <li>A connection to another git repository</li>
+          <li>Synchronize your changes with other repositories</li>
         </ul>
       </div>
+
+      <div class="layout-right" style="text-align: center;">
+        <img src="assets/remote.svg">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Viewing the state of your repository with tig">
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Adding a remote to your local repository">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>$ git remote add origin ~/.remote
+$ git remote -v</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Pushing your changes to a remote">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>$ git push --set-upstream origin master:master
+$ git push</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+</chapter>
+
+<chapter>
+  <slide
+    scale="1"
+    title="Getting the content that is on a remote">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>$ cd ~/example-100
+$ git fetch origin</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Viewing the changes of the remote">
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="How to get remote changes to your local files">
+    <div class="layout-2">
+      <div class="layout-top">
+        We can fast-forward!
+        <pre>$ git merge --ff-only</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="What if I changed something?">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>$ cd ~/example-101
+$ git fetch</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="What if the same local files were edited as on the remote?">
+    <div class="layout-2">
+      <div class="layout-top">
+        You have to handle the conflicts by yourself!
+        <pre>$ cd ~/example-102
+$ git fetch
+$ git rebase origin/master</pre>
+      </div>
+
       <div class="layout-bottom">
         <tty></tty>
       </div>
