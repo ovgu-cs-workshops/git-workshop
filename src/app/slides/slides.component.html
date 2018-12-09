@@ -382,7 +382,7 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
     title="Why Workflows">
 
     <div class="layout-center">
-      <pre>$ git add -a
+      <pre>$ git add -A
 $ git commit -m "Done some important work(not tested)"
 $ git push --force</pre>
     </div>
@@ -408,7 +408,7 @@ $ git push --force</pre>
     <div style="layout-right">
     <ul>
       <li>One branch</li>
-      <li>No concurrent working</li>
+      <li>Every commit lands directly on master</li>
     </ul>
   </div>
   </slide>
@@ -417,8 +417,8 @@ $ git push --force</pre>
     scale="1"
     title="Workflows">
     <div class="layout-center">
-      So what if I want to introduce a new awesome feature?
-      Simple! Push it to proposed updates!
+      So what if you want to introduce a new awesome feature? <br>
+      Well simple! Push it to the remote!
     </div>
   </slide>
 
@@ -440,18 +440,44 @@ to the same ref</pre>
     scale="1"
     title="Topic Branches">
     Solution? Create branches for new features!
-    <tty></tty>
-    <pre>
-| | [new branch]  feature/awesome_new_thing
-|/
-|  master
-</pre>
+    <history [setup]="topicBranches"></history>
   </slide>
 
   <slide
     scale="1"
     title="GitFlow Workflow">
     <history [setup]="gitFlowWorkflow"></history>
+  </slide>
+
+  <slide
+    title="GitFlow Workflow Example">
+    <div class="layout-1">
+      <tty></tty>
+    </div>
+  </slide>
+
+  <slide
+  title="Forking Workflow">
+      <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      <ul>
+        <li>Done on platforms like gitlab or github</li>
+        <li>Allows to create an own copy of another repository</li>
+        <li>New repository will be equal to the original repo at the moment of the fork</li>
+        <li>More of a Meta-Workflow since a new repo is created which can have it's own workflow</li>
+      </ul> <br>
+      <ul>
+        <li>Widely used for cooperation between individual developers</li>
+      </ul>
+  </slide>
+
+  <slide
+    title="Pull requests">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <div class="layout-center-bottom">
+      <img src="../../assets/pull.png">
+    </div>
+    Provide a way to include the changes done in your own fork into another repository <br><br>
+    Similar to merge requests but for forks
   </slide>
 </chapter>
 
@@ -639,10 +665,3 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
 
   <!--end of willys part-->
 </chapter>
-
-<chapter>
-  <slide
-    scale="1"
-    title="TTY">
-    <tty></tty>
-  </slide>
