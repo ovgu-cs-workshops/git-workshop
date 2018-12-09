@@ -8,5 +8,5 @@ import { config } from './config';
 export const environment = {
   production: false,
   config: config,
-  endpoint: 'ws://localhost:6032',
+  endpoint: 'ws://localhost:4000',
 };
