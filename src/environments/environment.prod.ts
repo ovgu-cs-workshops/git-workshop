@@ -3,5 +3,5 @@ import { config } from './config';
 export const environment = {
   production: true,
   config: config,
-  endpoint: "ws://localhost:6032"
+  endpoint: "wss://api.workshop.pattig.rocks"
 };
