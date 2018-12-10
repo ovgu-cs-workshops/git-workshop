@@ -552,11 +552,11 @@ $ git push --force</pre>
       </div>
     </div>
     <div style="layout-right">
-    <ul>
-      <li>One branch</li>
-      <li>Every commit lands directly on master</li>
-    </ul>
-  </div>
+      <ul>
+        <li>One branch</li>
+        <li>Every commit lands directly on master</li>
+      </ul>
+    </div>
   </slide>
 
   <slide
@@ -604,6 +604,68 @@ to the same ref</pre>
 </chapter>
 <chapter>
   <slide
+    title="Forking Workflow">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                          src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
+                                          alt="Fork me on GitHub"></a>
+    <ul>
+      <li>Done on platforms like gitlab or github</li>
+      <li>Allows to create an own copy of another repository</li>
+      <li>New repository will be equal to the original repo at the moment of the fork</li>
+      <li>More of a Meta-Workflow since a new repo is created which can have it's own workflow</li>
+    </ul>
+    <br>
+    <ul>
+      <li>Widely used for cooperation between individual developers</li>
+    </ul>
+  </slide>
+
+  <slide
+    title="Pull requests">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                          src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
+                                          alt="Fork me on GitHub"></a>
+    <div class="layout-center-bottom">
+      <img src="../../assets/pull.png">
+    </div>
+    Provide a way to include the changes done in your own fork into another repository <br><br>
+    Similar to merge requests but for forks
+  </slide>
+</chapter>
+
+<!--
+     * [1] Add gitignore slide
+     * [3] branches / tags
+     * [6] merge vs. rebase / workflows
+     * [2] checkout/revert/reset/clean
+     * [2] rewriting history
+     * [?] cherry picking
+
+     rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+     merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+  centralized workflow:
+   - one master branch
+   - small team sizes
+   - rebase
+   - linear history
+
+  feature branching:
+   - feature development on dedicated branch
+   - not disturbing the main code base
+   - master should not contain broken code
+
+  forking workflow:
+   - each developer has a local and a remote repository
+
+  gitflow workflow:
+   - large projects with scheduled release cycles
+   - master, hotfix, develop, feature, release
+-->
+
+
+<chapter>
+  <slide
     scale="1"
     title="Commit Signing"
   >
@@ -621,30 +683,26 @@ to the same ref</pre>
     scale="1"
     title="Commit Signing (GPG)"
   >
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <pre>$ git config --global \
+    <pre>$ gpg --gen-key</pre>
+    <pre>$ git config --global \
   user.signingkey 3AA5C34371567BD2</pre>
-        <ul>
-          <li>You wanna use this.</li>
-          <li>Good integration in Linux operating systems.</li>
-        </ul>
-      </div>
-
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
+    <ul>
+      <li>You wanna use this.</li>
+      <li>Good integration in Linux operating systems.</li>
+    </ul>
 
   </slide>
 
   <slide
 
     scale="1"
-    title="Commit Signing (S/MIME)"
+    title="Commit Signing"
   >
-      <pre>$ git config --global gpg.x509.program smimesign
-$ git config --global gpg.format x509</pre>
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
+      </div>
+    </div>
   </slide>
   <slide
     scale="1"
@@ -666,64 +724,6 @@ $ git config --global gpg.format x509</pre>
 
   </slide>
 </chapter>
-<chapter>
-  <slide
-  title="Forking Workflow">
-      <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-      <ul>
-        <li>Done on platforms like gitlab or github</li>
-        <li>Allows to create an own copy of another repository</li>
-        <li>New repository will be equal to the original repo at the moment of the fork</li>
-        <li>More of a Meta-Workflow since a new repo is created which can have it's own workflow</li>
-      </ul> <br>
-      <ul>
-        <li>Widely used for cooperation between individual developers</li>
-      </ul>
-  </slide>
-
-  <slide
-    title="Pull requests">
-    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-    <div class="layout-center-bottom">
-      <img src="../../assets/pull.png">
-    </div>
-    Provide a way to include the changes done in your own fork into another repository <br><br>
-    Similar to merge requests but for forks
-  </slide>
-</chapter>
-
-  <!--
-       * [1] Add gitignore slide
-       * [3] branches / tags
-       * [6] merge vs. rebase / workflows
-       * [2] checkout/revert/reset/clean
-       * [2] rewriting history
-       * [?] cherry picking
-
-       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
-
-    centralized workflow:
-     - one master branch
-     - small team sizes
-     - rebase
-     - linear history
-
-    feature branching:
-     - feature development on dedicated branch
-     - not disturbing the main code base
-     - master should not contain broken code
-
-    forking workflow:
-     - each developer has a local and a remote repository
-
-    gitflow workflow:
-     - large projects with scheduled release cycles
-     - master, hotfix, develop, feature, release
-  -->
-
-
-
 
 <chapter>
   <!--Willys part order 200->300-->
@@ -868,7 +868,8 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
       <div class="layout-left">
         <li>Does not change history</li>
         <li>Adds new commit in which it will try to remove changes that were
-        applied in the commit that is passed</li>
+          applied in the commit that is passed
+        </li>
       </div>
       <div class="layout-right">
         <tty></tty>
