@@ -666,9 +666,9 @@ to the same ref</pre>
       <div class="layout-left">
         <ul>
           <li><b>!Danger!</b> advanced topic</li>
-          <li>if local history changes it needs to be force pushed</li>
-          <li>force pushing should be avoided</li>
-          <li>result local copy out of sync</li>
+          <li>If local history changes it needs to be force pushed</li>
+          <li>Force pushing should be avoided</li>
+          <li>Result local copy out of sync</li>
         </ul>
       </div>
       <div class="layout-right">
@@ -678,7 +678,7 @@ to the same ref</pre>
   </slide>
 
   <slide order="201" scale="1" title="How to Rewrite History?">
-    easiest way is to use:<br>
+    Easiest way is to use:<br>
 
     <pre>% git remote -v
  origin https://github.com/elementary/calendar.git (fetch)
@@ -688,7 +688,7 @@ to the same ref</pre>
 
   </slide>
 
-  <slide order="220" scale="1" title="Fix">
+  <slide order="220" scale="1" title="Fixup">
     <pre>pick e842b66 Remove unused match_keycode method (#238)
 pick 38ac20f Replace most of used deprecated methods (#237)
 pick 12d8409 Translated using Weblate (Thai)
@@ -700,7 +700,7 @@ pick 280a4d9 Translated using Weblate (Portuguese)
 pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
-  <slide order="221" scale="1" title="Fix">
+  <slide order="221" scale="1" title="Fixup">
     <pre>pick e842b66 Remove unused match_keycode method (#238)
 pick 38ac20f Replace most of used deprecated methods (#237)
 pick 12d8409 Translated using Weblate (Thai)
@@ -712,13 +712,21 @@ pick 280a4d9 Translated using Weblate (Portuguese)
 pick a6618ed Translated using Weblate (Marathi)</pre>
   </slide>
 
-  <slide order="asdf" scale="1" title="Fix">
+  <slide order="asdf" scale="1" title="Fixup">
     <div class="layout-1x1">
       <div class="layout-left">
         <history [setup]="fix1"></history>
       </div>
       <div class="layout-right">
         <history [setup]="fix2"></history>
+      </div>
+    </div>
+  </slide>
+
+  <slide scale="1" title="Fixup">
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
       </div>
     </div>
   </slide>
@@ -780,11 +788,19 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
     </div>
   </slide>
 
+  <slide scale="1" title="Fixup">
+    <div class="layout-1">
+      <div class="layout-center">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
   <slide order="250" scale="1" title="Revert">
     <div class="layout-1x1">
       <div class="layout-left">
-        <li>does not change history</li>
-        <li>adds new commit in which it will try to remove changes that were
+        <li>Does not change history</li>
+        <li>Adds new commit in which it will try to remove changes that were
         applied in the commit that is passed</li>
       </div>
       <div class="layout-right">
@@ -796,8 +812,8 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
   <slide order="250" scale="1" title="Reset">
     <div class="layout-1x1">
       <div class="layout-left">
-        <li>changes history</li>
-        <li>moves the current HEAD</li>
+        <li>Changes history</li>
+        <li>Moves the current HEAD</li>
         <li><code>--soft</code> keeps changes but removes the commit structure</li>
         <li><code>--hard</code> removes changes and commits</li>
       </div>
