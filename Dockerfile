@@ -12,6 +12,8 @@ FROM nginx:latest
 
 COPY --from=builder /git-workshop/dist /usr/share/nginx/html
 
+RUN ls /usr/share/nginx/html
+
 ADD ./docker/start.sh /usr/bin
 RUN chmod +x /usr/bin/start.sh
 
