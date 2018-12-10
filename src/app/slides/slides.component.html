@@ -684,12 +684,9 @@ to the same ref</pre>
     title="Commit Signing (GPG)"
   >
     <pre>$ gpg --gen-key</pre>
-    <pre>$ git config --global \
-  user.signingkey 3AA5C34371567BD2</pre>
-    <ul>
-      <li>You wanna use this.</li>
-      <li>Good integration in Linux operating systems.</li>
-    </ul>
+    <pre>$ gpg --list-secret-keys</pre>
+    <pre>$ git config --global user.signingkey 3AA5C34371567BD2</pre>
+    <pre>$ git config --global commit.gpgsign true</pre>
 
   </slide>
 
@@ -698,30 +695,36 @@ to the same ref</pre>
     scale="1"
     title="Commit Signing"
   >
-    <div class="layout-1">
-      <div class="layout-center">
-        <tty></tty>
-      </div>
-    </div>
+    <ul>
+      <li>Create a <b>signed</b> commit.</li>
+    </ul>
+    <pre>$ git commit -m "I am going to create a signed commit." -S</pre>
+
+    <ul>
+      <li>Verify a <b>signed</b> commit.</li>
+    </ul>
+    <pre>$ git verify-commit [commit-hash] </pre>
+    <blockquote>
+      You can only verify a commit, if the public key is in your keyring.
+    </blockquote>
+
   </slide>
   <slide
     scale="1"
     title="Tag Signing"
   >
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <pre>$ git tag -s v0.13.37</pre>
-        This will add a PGP signature to the end of the tag.
+    <ul>
+      <li>Create a <b>signed</b> tag.</li>
+    </ul>
+    <pre>$ git tag -s v0.13.37 </pre>
 
-        <pre>$ git tag -v v0.13.37</pre>
-        You can verify the signed tag, if you have the matching public key.
-      </div>
-
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
-
+    <ul>
+      <li>Verify a <b>signed</b> tag.</li>
+    </ul>
+    <pre>$ git tag -v v0.13.37 </pre>
+    <blockquote>
+      You can only verify a commit, if the public key is in your keyring.
+    </blockquote>
   </slide>
 </chapter>
 
