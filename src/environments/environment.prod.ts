@@ -2,5 +2,6 @@ import { config } from './config';
 
 export const environment = {
   production: true,
-  config: config
+  config: config,
+  endpoint: "ws://localhost:6032"
 };
