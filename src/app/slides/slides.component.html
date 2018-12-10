@@ -599,19 +599,21 @@ to the same ref</pre>
       <tty></tty>
     </div>
   </slide>
-
+</chapter>
+<chapter>
   <slide
-  title="Forking Workflow">
-      <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-      <ul>
-        <li>Done on platforms like gitlab or github</li>
-        <li>Allows to create an own copy of another repository</li>
-        <li>New repository will be equal to the original repo at the moment of the fork</li>
-        <li>More of a Meta-Workflow since a new repo is created which can have it's own workflow</li>
-      </ul> <br>
-      <ul>
-        <li>Widely used for cooperation between individual developers</li>
-      </ul>
+    title="Forking Workflow">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <ul>
+      <li>Done on platforms like gitlab or github</li>
+      <li>Allows to create an own copy of another repository</li>
+      <li>New repository will be equal to the original repo at the moment of the fork</li>
+      <li>More of a Meta-Workflow since a new repo is created which can have it's own workflow</li>
+    </ul>
+    <br>
+    <ul>
+      <li>Widely used for cooperation between individual developers</li>
+    </ul>
   </slide>
 
   <slide
@@ -625,38 +627,79 @@ to the same ref</pre>
   </slide>
 </chapter>
 
-  <!--
-       * [1] Add gitignore slide
-       * [3] branches / tags
-       * [6] merge vs. rebase / workflows
-       * [2] checkout/revert/reset/clean
-       * [2] rewriting history
-       * [?] cherry picking
+<chapter>
+  <slide
+    scale="1"
+    title="Commit Signing"
+  >
+    <p>You can sign your commits!</p>
+    <ul>
+      <li>Why? It is quite easy to pretend to be someone else.</li>
+      <li>Do you remember how you created your identity?</li>
+      <li>You could pretend to be Linus Torvalds.</li>
+      <li>You can sign your commits with your GPG key or your S/MIME key.</li>
+    </ul>
 
-       rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-       merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+  </slide>
 
-    centralized workflow:
-     - one master branch
-     - small team sizes
-     - rebase
-     - linear history
+  <slide
+    scale="1"
+    title="Commit Signing (GPG)"
+  >
+    <pre>$ gpg --gen-key</pre>
+    <pre>$ gpg --list-secret-keys</pre>
+    <pre>$ git config --global user.signingkey 3AA5C34371567BD2</pre>
+    <pre>$ git config --global commit.gpgsign true</pre>
 
-    feature branching:
-     - feature development on dedicated branch
-     - not disturbing the main code base
-     - master should not contain broken code
+  </slide>
 
-    forking workflow:
-     - each developer has a local and a remote repository
+  <slide
 
-    gitflow workflow:
-     - large projects with scheduled release cycles
-     - master, hotfix, develop, feature, release
-  -->
+    scale="1"
+    title="Commit Signing"
+  >
+    <ul>
+      <li>Create a <b>signed</b> commit.</li>
+    </ul>
+    <pre>$ git commit -m "I am going to create a signed commit." -S</pre>
 
+    <ul>
+      <li>Verify a <b>signed</b> commit.</li>
+    </ul>
+    <pre>$ git verify-commit [commit-hash] </pre>
+    <blockquote>
+      You can only verify a commit, if the public key is in your keyring.
+    </blockquote>
 
+  </slide>
+  <slide
+    scale="1"
+    title="Tag Signing"
+  >
+    <ul>
+      <li>Create a <b>signed</b> tag.</li>
+    </ul>
+    <pre>$ git tag -s v0.13.37 </pre>
 
+    <ul>
+      <li>Verify a <b>signed</b> tag.</li>
+    </ul>
+    <pre>$ git tag -v v0.13.37 </pre>
+    <blockquote>
+      You can only verify a commit, if the public key is in your keyring.
+    </blockquote>
+  </slide>
+  <slide
+    title="Badges!"
+  >
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center">
+        <img src="assets/screenshotsigning.png" width="1038">
+      </div>
+    </div>
+
+  </slide>
+</chapter>
 
 <chapter>
   <!--Willys part order 200->300-->
@@ -801,7 +844,7 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
       <div class="layout-left">
         <li>Does not change history</li>
         <li>Adds new commit in which it will try to remove changes that were
-        applied in the commit that is passed</li>
+          applied in the commit that is passed</li>
       </div>
       <div class="layout-right">
         <tty></tty>
@@ -825,3 +868,33 @@ pick a6618ed Translated using Weblate (Marathi)</pre>
 
   <!--end of willys part-->
 </chapter>
+
+<!--
+     * [1] Add gitignore slide
+     * [3] branches / tags
+     * [6] merge vs. rebase / workflows
+     * [2] checkout/revert/reset/clean
+     * [2] rewriting history
+     * [?] cherry picking
+
+     rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
+     merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
+
+  centralized workflow:
+   - one master branch
+   - small team sizes
+   - rebase
+   - linear history
+
+  feature branching:
+   - feature development on dedicated branch
+   - not disturbing the main code base
+   - master should not contain broken code
+
+  forking workflow:
+   - each developer has a local and a remote repository
+
+  gitflow workflow:
+   - large projects with scheduled release cycles
+   - master, hotfix, develop, feature, release
+-->
