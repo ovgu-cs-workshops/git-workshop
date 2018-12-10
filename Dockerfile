@@ -6,11 +6,11 @@ WORKDIR git-workshop
 
 RUN npm ci
 RUN npx ng build --prod
+RUN ls dist
 
 FROM nginx:latest
 
-ARG configuration=production
-COPY --from=builder /git-workshop/dist/ /usr/share/nginx/html
+COPY --from=builder /git-workshop/dist /usr/share/nginx/html
 
 ADD ./docker/start.sh /usr/bin
 RUN chmod +x /usr/bin/start.sh
