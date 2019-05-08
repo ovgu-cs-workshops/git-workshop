@@ -4,7 +4,7 @@
     title="">
     <div class="layout-1x1">
       <div class="layout-left">
-        <h1>Git Workshop</h1>
+        <h2>An interactive introduction<br>to Git</h2>
         <h3>
           Fin Christensen
           <br>
@@ -72,6 +72,41 @@
 <chapter title="Basics">
   <slide
     scale="1"
+    title="Basics: What makes Git unique?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Git is <b>fully</b> decentralized</li>
+          <li>Git has cheap branching</li>
+          <li>Git allows for multiple workflows</li>
+          <li>Git can be used for <b>all</b> project sizes</li>
+          <li>Git is FOSS</li>
+        </ul>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Basics: Git Concepts">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>Git knows 4 concepts:</li>
+          <ul>
+            <li>Repositories</li>
+            <li>Commits</li>
+            <li>Branches</li>
+            <li>Tags</li>
+          </ul>
+          <li>So, let's look at these concepts</li>
+        </ul>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
     title="Basics: What is a repository?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -90,16 +125,45 @@
 
   <slide
     scale="1"
-    title="Basics: What is a branch?">
-    <div class="layout-2">
-      <div class="layout-top">
+    title="Basics: What is a commit?">
+    <div class="layout-1">
+      <div class="layout-center">
         <ul>
-          <li>The Git history is managed in <code>branches</code></li>
-          <li>Branches are managing <code>commits</code></li>
-          <li>Default branch: <code>master</code></li>
+          <li>A commit is the smallest atom Git knows</li>
+          <li>A commit contains a set of changes to files</li>
+          <li>Additionally, it contains some metadata used by Git and Humans</li>
+          <ul>
+            <li>Commit-Hash (Identifier)</li>
+            <li>Author</li>
+            <li>Timestamp</li>
+            <li>Parent Commit(s)</li>
+            <li>Description (optional)</li>
+          </ul>
         </ul>
       </div>
+    </div>
+  </slide>
 
+  <slide
+    scale="1"
+    title="Basics: What is a commit? (Example)">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img height="650" src="assets/diff.png">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Basics: Building history">
+    <div class="layout-2">
+      <div class="layout-top">
+          <ul>
+            <li>A commit and its parents define the state of your project at a specific version</li>
+            <li>When doing multiple commits with the same parent, it looks like this:</li>
+          </ul>
+      </div>
       <div class="layout-bottom" style="text-align: center;">
         <img height="300" src="assets/git-branches.svg">
       </div>
@@ -108,10 +172,19 @@
 
   <slide
     scale="1"
-    title="Basics: What is a commit?">
-    <div class="layout-1">
-      <div class="layout-center" style="text-align: center;">
-        <img height="650" src="assets/diff.png">
+    title="Basics: What is a branch?">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <ul>
+          <li>It is inconvenient to memorize commit hashes manually</li>
+          <li>A branch is basically a <b>name</b> identifying a specific point of your commit graph</li>
+          <li>Branches track when commits are added onto their name</li>
+          <li>Default branch: <code>master</code></li>
+        </ul>
+      </div>
+
+      <div class="layout-right" style="text-align: center;">
+        <img height="600" src="assets/git-branches-names.svg">
       </div>
     </div>
   </slide>
@@ -141,10 +214,10 @@
     <div class="layout-1">
       <div class="layout-center">
         <ul>
-          <li>A repository is made up of one or more branches</li>
-          <li>Branches can exist side by side</li>
-          <li>Branches are made up of commits that build the history of your project</li>
-          <li>Commits are holding the actual code changes in the history</li>
+          <li>A repository is made up of commits, branches and tags</li>
+          <li><b>Commits</b> contain changes</li>
+          <li>Branches are names for commit series</li>
+          <li>Tags are specific points in your history</li>
         </ul>
       </div>
     </div>
@@ -174,27 +247,7 @@
 
   <slide
     scale="1"
-    title="Local: Let's Use Git">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <div>
-          Create a new git repository
-        </div>
-        <pre>$ git init my-project</pre>
-        <div>
-          And <code>cd</code> into it
-          <pre>$ cd my-project</pre>
-        </div>
-      </div>
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Local: Ok, and now?">
+    title="Local: Tell git who you are">
     <div class="layout-2">
       <div class="layout-center-top">
         Configure your environment!
@@ -214,7 +267,27 @@ $ git config --global core.editor nano</pre>
 
   <slide
     scale="1"
-    title="Local: I wanna do something!">
+    title="Local: Let's use git">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        <div>
+          Create a new git repository
+        </div>
+        <pre>$ git init my-project</pre>
+        <div>
+          And <code>cd</code> into it
+          <pre>$ cd my-project</pre>
+        </div>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    scale="1"
+    title="Local: Prepare your first commit">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
@@ -530,12 +603,12 @@ $ git push --force</pre>
   <slide
     scale="1"
     title="Teams: Centralized Workflow">
-    <div style="layout-left">
+    <div class="layout-left">
       <div style="text-align: center">
         <history [setup]="central"></history>
       </div>
     </div>
-    <div style="layout-right">
+    <div class="layout-right">
       <ul>
         <li>One branch</li>
         <li>Every commit lands directly on master</li>

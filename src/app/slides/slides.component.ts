@@ -133,7 +133,7 @@ export class SlidesComponent implements AfterViewInit {
     f2.commit('Add fancy agenda')
     feature.commit('Fix spelling');
     feature.merge(master);
-    f2.merge(master)
+    f2.merge(master);
   }
 
   public fix1(config: any): void {
