@@ -8,7 +8,7 @@ import {
   BrowserWebSocketTransport,
   TicketAuthProvider,
 } from '@verkehrsministerium/kraftfahrstrasse';
-import { Deferred } from '@verkehrsministerium/queueable';
+import { Deferred } from 'queueable';
 import { BrowserMSGPackSerializer } from '@verkehrsministerium/kraftfahrstrasse/build/module/serialize/BrowserMSGPack';
 
 const random = () => Math.random().toString(36).substring(7);
