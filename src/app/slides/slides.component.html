@@ -25,14 +25,25 @@
   </slide>
 
   <slide title="Agenda">
-    <history [setup]="agenda"></history>
+    TBD
+    <ul>
+      <li>Introduction</li>
+      <li>Basics</li>
+      <li>Working locally</li>
+      <li>Working remotely</li>
+      <li>Working in teams</li>
+          <ul>
+            <li>Workflows</li>
+          </ul>
+    </ul>
+    <!--<history [setup]="agenda"></history>-->
   </slide>
 </chapter>
 
-<chapter>
+<chapter title="Introduction">
   <slide
     scale="1"
-    title="Why version control?">
+    title="Introduction: Why version control?">
     <div class="layout-1">
       <img class="layout-center" src="./assets/version-control.svg">
     </div>
@@ -40,7 +51,7 @@
 
   <slide
     scale="1"
-    title="Git">
+    title="Introduction: Git">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
@@ -58,7 +69,7 @@
   </slide>
 </chapter>
 
-<chapter>
+<chapter title="Basics">
   <slide
     scale="1"
     title="Basics: What is a repository?">
@@ -140,10 +151,10 @@
   </slide>
 </chapter>
 
-<chapter>
+<chapter title="Local" subtitle="Working with your own repository">
   <slide
     scale="1"
-    title="Let's start">
+    title="Local: Let's start">
     <div class="layout-1x1">
       <div class="layout-left">
         <p><b>Get your laptops!</b></p>
@@ -163,7 +174,7 @@
 
   <slide
     scale="1"
-    title="Let's Use Git">
+    title="Local: Let's Use Git">
     <div class="layout-1x1">
       <div class="layout-left">
         <div>
@@ -183,7 +194,7 @@
 
   <slide
     scale="1"
-    title="Ok, and now?">
+    title="Local: Ok, and now?">
     <div class="layout-2">
       <div class="layout-center-top">
         Configure your environment!
@@ -203,25 +214,7 @@ $ git config --global core.editor nano</pre>
 
   <slide
     scale="1"
-    title="How to Use Nano">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <ul>
-          <li>Open or create a new file: <pre>$ nano my-file.txt</pre></li>
-          <li>Save a file: <code>Ctrl+O</code></li>
-          <li>Quit Nano <code>Ctrl+X</code></li>
-        </ul>
-      </div>
-
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="I wanna do something!">
+    title="Local: I wanna do something!">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
@@ -244,7 +237,7 @@ $ git add README.md</pre>
 
   <slide
     scale="1"
-    title="Now tell other people what you did">
+    title="Local: Now tell other people what you did">
     <div class="layout-1">
       <div class="layout-center">
         <pre>Short description in imperative - 70 columns max width ---------------
@@ -265,7 +258,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="Let's do it together!">
+    title="Local: Let's do it together!">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -275,7 +268,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="How can I stage all files at once?">
+    title="Local: How can I stage all files at once?">
     <div class="layout-1x1">
       <div class="layout-left">
         <pre>$ git add -A</pre>
@@ -290,7 +283,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="But I don't want all the files in git!">
+    title="Local: But I don't want all the files in git!">
     <div class="layout-2">
       <div class="layout-center-top">
         There is magic for that! A file called <code>.gitignore</code>
@@ -303,10 +296,10 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 </chapter>
 
-<chapter>
+<chapter title="Remote" subtitle="Working with a remote repository">
   <slide
     scale="1"
-    title="Publishing your changes">
+    title="Remote: Publishing your changes">
     <div class="layout-1">
       <div class="layout-center" style="text-align: center;">
         <img width="1400" src="assets/remote-comic.svg">
@@ -316,7 +309,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="What is a remote?">
+    title="Remote: What is a remote?">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
@@ -333,7 +326,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="Viewing the state of your repository with tig">
+    title="Remote: Viewing the state of your repository with tig">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -343,7 +336,7 @@ Long description ------- 80 chars wide -----------------------------------------
 
   <slide
     scale="1"
-    title="Adding a remote to your local repository">
+    title="Remote: Adding a remote to your local repository">
     <div class="layout-2">
       <div class="layout-top">
         <pre>$ git remote add origin ~/.remote
@@ -358,7 +351,7 @@ $ git remote -v</pre>
 
   <slide
     scale="1"
-    title="Pushing your changes to a remote">
+    title="Remote: Pushing your changes to a remote">
     <div class="layout-2">
       <div class="layout-top">
         <pre>$ git push --set-upstream origin master:master
@@ -370,12 +363,9 @@ $ git push</pre>
       </div>
     </div>
   </slide>
-</chapter>
-
-<chapter>
   <slide
     scale="1"
-    title="Getting the content that is on a remote">
+    title="Remote: Getting the content that is on a remote">
     <div class="layout-2">
       <div class="layout-top">
         <pre>$ cd ~/example-100
@@ -390,7 +380,7 @@ $ git fetch origin</pre>
 
   <slide
     scale="1"
-    title="Viewing the changes of the remote">
+    title="Remote: Viewing the changes of the remote">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -400,7 +390,7 @@ $ git fetch origin</pre>
 
   <slide
     scale="1"
-    title="How to get remote changes to your local files">
+    title="Remote: How to get remote changes to your local files">
     <div class="layout-2">
       <div class="layout-top">
         We can fast-forward!
@@ -415,7 +405,7 @@ $ git fetch origin</pre>
 
   <slide
     scale="1"
-    title="What if I changed something?">
+    title="Remote: What if I changed something?">
     <div class="layout-2">
       <div class="layout-top">
         <pre>$ cd ~/example-101
@@ -430,7 +420,7 @@ $ git fetch</pre>
 
   <slide
     scale="1"
-    title="What if I changed something?">
+    title="Remote: What if I changed something?">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -440,7 +430,7 @@ $ git fetch</pre>
 
   <slide
     scale="1"
-    title="What if the same local files were edited as on the remote?">
+    title="Remote: What if the same local files were edited as on the remote?">
     <div class="layout-2">
       <div class="layout-top">
         You have to handle the conflicts by yourself!
@@ -457,7 +447,7 @@ $ git rebase origin/master</pre>
 
   <slide
     scale="1"
-    title="What if the same local files were edited as on the remote?">
+    title="Remote: What if the same local files were edited as on the remote?">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -467,7 +457,7 @@ $ git rebase origin/master</pre>
 
   <slide
     scale="1"
-    title="Cloning an existing repository">
+    title="Remote: Cloning an existing repository">
     <div class="layout-2">
       <div class="layout-center-top">
         <p>
@@ -484,10 +474,10 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
   </slide>
 </chapter>
 
-<chapter>
+<chapter title="Teams" subtitle="Working with a team">
   <slide
     scale="1"
-    title="Ok, and how do I use these branches and tags now?">
+    title="Teams: Ok, and how do I use these branches and tags now?">
     <div class="layout-2">
       <div class="layout-top">
         <ul>
@@ -504,26 +494,22 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
 
   <slide
     scale="1"
-    title="How a merge works">
+    title="Teams: How a merge works">
     <history [setup]="howAMergeWorks"></history>
   </slide>
 
   <slide
     scale="1"
-    title="How a rebase works">
+    title="Teams: How a rebase works">
     <div class="layout-1">
       <div class="layout-center" style="text-align: center;">
         <img height="650" src="assets/rebase.svg">
       </div>
     </div>
   </slide>
-</chapter>
-
-
-<chapter>
   <slide
     scale="1"
-    title="Why Workflows">
+    title="Teams: Why Workflows">
 
     <div class="layout-center">
       <pre>$ git add -A
@@ -535,7 +521,7 @@ $ git push --force</pre>
 
   <slide
     scale="1"
-    title="Literally 5 minutes later">
+    title="Teams: Literally 5 minutes later">
     <div class="layout-center" style="text-align: center">
       <img src="../../assets/workflow_burning.png">
     </div>
@@ -543,23 +529,23 @@ $ git push --force</pre>
 
   <slide
     scale="1"
-    title="Centralized Workflow">
+    title="Teams: Centralized Workflow">
     <div style="layout-left">
       <div style="text-align: center">
         <history [setup]="central"></history>
       </div>
     </div>
     <div style="layout-right">
-    <ul>
-      <li>One branch</li>
-      <li>Every commit lands directly on master</li>
-    </ul>
-  </div>
+      <ul>
+        <li>One branch</li>
+        <li>Every commit lands directly on master</li>
+      </ul>
+    </div>
   </slide>
 
   <slide
     scale="1"
-    title="Workflows">
+    title="Teams: Workflows">
     <div class="layout-center">
       So what if you want to introduce a new awesome feature? <br>
       Well simple! Push it to the remote!
@@ -568,7 +554,7 @@ $ git push --force</pre>
 
   <slide
     scale="1"
-    title="Workflows">
+    title="Teams: Workflows">
     <div class="layout-center-top">
       <pre>
 Updates were rejected because the remote contains work that you do
@@ -582,27 +568,25 @@ to the same ref</pre>
 
   <slide
     scale="1"
-    title="Topic Branches">
+    title="Teams: Topic Branches">
     Solution? Create branches for new features!
     <history [setup]="topicBranches"></history>
   </slide>
 
   <slide
     scale="1"
-    title="GitFlow Workflow">
+    title="Teams: GitFlow Workflow">
     <history [setup]="gitFlowWorkflow"></history>
   </slide>
 
   <slide
-    title="GitFlow Workflow Example">
+    title="Teams: GitFlow Workflow Example">
     <div class="layout-1">
       <tty></tty>
     </div>
   </slide>
-</chapter>
-<chapter>
   <slide
-    title="Forking Workflow">
+    title="Teams: Forking Workflow">
     <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
     <ul>
       <li>Done on platforms like gitlab or github</li>
@@ -617,7 +601,7 @@ to the same ref</pre>
   </slide>
 
   <slide
-    title="Pull requests">
+    title="Teams: Pull requests">
     <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
     <div class="layout-center-bottom">
       <img src="../../assets/pull.png">
@@ -626,275 +610,3 @@ to the same ref</pre>
     Similar to merge requests but for forks
   </slide>
 </chapter>
-
-<chapter>
-  <slide
-    scale="1"
-    title="Commit Signing"
-  >
-    <p>You can sign your commits!</p>
-    <ul>
-      <li>Why? It is quite easy to pretend to be someone else.</li>
-      <li>Do you remember how you created your identity?</li>
-      <li>You could pretend to be Linus Torvalds.</li>
-      <li>You can sign your commits with your GPG key or your S/MIME key.</li>
-    </ul>
-
-  </slide>
-
-  <slide
-    scale="1"
-    title="Commit Signing (GPG)"
-  >
-    <pre>$ gpg --gen-key</pre>
-    <pre>$ gpg --list-secret-keys</pre>
-    <pre>$ git config --global user.signingkey 3AA5C34371567BD2</pre>
-    <pre>$ git config --global commit.gpgsign true</pre>
-
-  </slide>
-
-  <slide
-
-    scale="1"
-    title="Commit Signing"
-  >
-    <ul>
-      <li>Create a <b>signed</b> commit.</li>
-    </ul>
-    <pre>$ git commit -m "I am going to create a signed commit." -S</pre>
-
-    <ul>
-      <li>Verify a <b>signed</b> commit.</li>
-    </ul>
-    <pre>$ git verify-commit [commit-hash] </pre>
-    <blockquote>
-      You can only verify a commit, if the public key is in your keyring.
-    </blockquote>
-
-  </slide>
-  <slide
-    scale="1"
-    title="Tag Signing"
-  >
-    <ul>
-      <li>Create a <b>signed</b> tag.</li>
-    </ul>
-    <pre>$ git tag -s v0.13.37 </pre>
-
-    <ul>
-      <li>Verify a <b>signed</b> tag.</li>
-    </ul>
-    <pre>$ git tag -v v0.13.37 </pre>
-    <blockquote>
-      You can only verify a commit, if the public key is in your keyring.
-    </blockquote>
-  </slide>
-  <slide
-    title="Badges!"
-  >
-    <div class="layout-1">
-      <div class="layout-center" style="text-align: center">
-        <img src="assets/screenshotsigning.png" width="1038">
-      </div>
-    </div>
-
-  </slide>
-</chapter>
-
-<chapter>
-  <!--Willys part order 200->300-->
-
-  <slide order="200" scale="1" title="Rewrite History">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <ul>
-          <li><b>!Danger!</b> advanced topic</li>
-          <li>If local history changes it needs to be force pushed</li>
-          <li>Force pushing should be avoided</li>
-          <li>Result local copy out of sync</li>
-        </ul>
-      </div>
-      <div class="layout-right">
-        <img src="assets/git_commit.png" width=750>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="201" scale="1" title="How to Rewrite History?">
-    Easiest way is to use:<br>
-
-    <pre>% git remote -v
- origin https://github.com/elementary/calendar.git (fetch)
- origin https://github.com/elementary/calendar.git (push)
-% git rebase -i b55e6eb
- successfully rebased and updated refs/heads/master.</pre>
-
-  </slide>
-
-  <slide order="220" scale="1" title="Fixup">
-    <pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-pick e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-  </slide>
-
-  <slide order="221" scale="1" title="Fixup">
-    <pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-f e2fbfd9 Translated using Weblate (Japanese)
-f 343f2ba Translated using Weblate (Japanese)
-f 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-  </slide>
-
-  <slide order="asdf" scale="1" title="Fixup">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <history [setup]="fix1"></history>
-      </div>
-      <div class="layout-right">
-        <history [setup]="fix2"></history>
-      </div>
-    </div>
-  </slide>
-
-  <slide scale="1" title="Fixup">
-    <div class="layout-1">
-      <div class="layout-center">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="220" scale="1" title="Reword">
-    <pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-r e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-  </slide>
-
-  <slide order="230" scale="1" title="Reword">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <history [setup]="reword1"></history>
-      </div>
-      <div class="layout-right">
-        <history [setup]="reword2"></history>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="240" scale="1" title="Drop">
-    <pre>pick e842b66 Remove unused match_keycode method (#238)
-pick 38ac20f Replace most of used deprecated methods (#237)
-pick 12d8409 Translated using Weblate (Thai)
-pick 81ef40a Translated using Weblate (Japanese)
-d e2fbfd9 Translated using Weblate (Japanese)
-pick 343f2ba Translated using Weblate (Japanese)
-pick 470dc17 Translated using Weblate (Japanese)
-pick 280a4d9 Translated using Weblate (Portuguese)
-pick a6618ed Translated using Weblate (Marathi)</pre>
-  </slide>
-
-  <slide order="230" scale="1" title="Drop">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <history [setup]="reword1"></history>
-      </div>
-      <div class="layout-right">
-        <history [setup]="reword3"></history>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="270" scale="1" title="Cherrypick">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <history [setup]="cherrypick1"></history>
-      </div>
-      <div class="layout-right">
-        <history [setup]="cherrypick2"></history>
-      </div>
-    </div>
-  </slide>
-
-  <slide scale="1" title="Fixup">
-    <div class="layout-1">
-      <div class="layout-center">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="250" scale="1" title="Revert">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <li>Does not change history</li>
-        <li>Adds new commit in which it will try to remove changes that were
-          applied in the commit that is passed</li>
-      </div>
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide order="250" scale="1" title="Reset">
-    <div class="layout-1x1">
-      <div class="layout-left">
-        <li>Changes history</li>
-        <li>Moves the current HEAD</li>
-        <li><code>--soft</code> keeps changes but removes the commit structure</li>
-        <li><code>--hard</code> removes changes and commits</li>
-      </div>
-      <div class="layout-right">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <!--end of willys part-->
-</chapter>
-
-<!--
-     * [1] Add gitignore slide
-     * [3] branches / tags
-     * [6] merge vs. rebase / workflows
-     * [2] checkout/revert/reset/clean
-     * [2] rewriting history
-     * [?] cherry picking
-
-     rebase: http://jsfiddle.net/fin_ger/74ef9g15/11/
-     merge: http://jsfiddle.net/fin_ger/aLbzdgzL/1/
-
-  centralized workflow:
-   - one master branch
-   - small team sizes
-   - rebase
-   - linear history
-
-  feature branching:
-   - feature development on dedicated branch
-   - not disturbing the main code base
-   - master should not contain broken code
-
-  forking workflow:
-   - each developer has a local and a remote repository
-
-  gitflow workflow:
-   - large projects with scheduled release cycles
-   - master, hotfix, develop, feature, release
--->
