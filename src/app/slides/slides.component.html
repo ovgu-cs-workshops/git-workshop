@@ -1,6 +1,5 @@
 <chapter>
   <slide
-    scale="1"
     title="">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -42,7 +41,6 @@
 
 <chapter title="Introduction">
   <slide
-    scale="1"
     title="Introduction: Why version control?">
     <div class="layout-1">
       <img class="layout-center" src="./assets/version-control.svg">
@@ -50,7 +48,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Introduction: Git">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -71,7 +68,6 @@
 
 <chapter title="Basics">
   <slide
-    scale="1"
     title="Basics: What makes Git unique?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -87,7 +83,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: Git Concepts">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -106,7 +101,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: What is a repository?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -124,7 +118,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: What is a commit?">
     <div class="layout-1">
       <div class="layout-center">
@@ -145,7 +138,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: What is a commit? (Example)">
     <div class="layout-1">
       <div class="layout-center" style="text-align: center;">
@@ -155,7 +147,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: Building history">
     <div class="layout-2">
       <div class="layout-top">
@@ -171,7 +162,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: What is a branch?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -190,7 +180,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: What is a tag?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -209,7 +198,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Basics: Summing it Up">
     <div class="layout-1">
       <div class="layout-center">
@@ -226,7 +214,6 @@
 
 <chapter title="Local" subtitle="Working with your own repository">
   <slide
-    scale="1"
     title="Local: Let's start">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -246,7 +233,6 @@
   </slide>
 
   <slide
-    scale="1"
     title="Local: Tell Git who you are">
     <div class="layout-2">
       <div class="layout-center-top">
@@ -266,7 +252,6 @@ $ git config --global core.editor nano</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Local: Let's use git">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -286,7 +271,6 @@ $ git config --global core.editor nano</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Local: Work on your project">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -309,7 +293,6 @@ $ git add README.md</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Local: Staging area">
     <div class="layout-1">
       <div class="layout-center" style="display: flex; flex-flow: column nowrap; align-items: center">
@@ -319,7 +302,6 @@ $ git add README.md</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Local: Now tell other people what you did">
     <div class="layout-1">
       <div class="layout-center">
@@ -340,7 +322,6 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Local: Let's do it together!">
     <div class="layout-1">
       <div class="layout-center">
@@ -350,7 +331,6 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Local: How can I stage all files at once?">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -365,7 +345,6 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Local: But I don't want all the files in git!">
     <div class="layout-2">
       <div class="layout-center-top">
@@ -377,11 +356,20 @@ Long description ------- 80 chars wide -----------------------------------------
       </div>
     </div>
   </slide>
+
+  <slide
+    title="Local: Going further">
+    <div class="layout-1">
+        <ul class="layout-center">
+          <li>You rarely work alone!</li>
+          <li>To collaborate with others, a <b>remote</b> is needed.</li>
+        </ul>
+    </div>
+  </slide>
 </chapter>
 
 <chapter title="Remote" subtitle="Working with a remote repository">
   <slide
-    scale="1"
     title="Remote: Publishing your changes">
     <div class="layout-1">
       <div class="layout-center" style="text-align: center;">
@@ -391,13 +379,15 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Remote: What is a remote?">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
+          <li>Another Git repository on the same or another computer</li>
+          <li>Basically a full copy of your code (a peer)</li>
           <li>A connection to another git repository</li>
           <li>Synchronize your changes with other repositories</li>
+          <li>No central server required (though often used)</li>
         </ul>
       </div>
 
@@ -408,7 +398,6 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Remote: Viewing the state of your repository with tig">
     <div class="layout-1">
       <div class="layout-center">
@@ -418,12 +407,13 @@ Long description ------- 80 chars wide -----------------------------------------
   </slide>
 
   <slide
-    scale="1"
     title="Remote: Adding a remote to your local repository">
     <div class="layout-2">
       <div class="layout-top">
-        <pre>$ git remote add origin ~/.remote
-$ git remote -v</pre>
+        <pre>
+$ git remote add origin ~/.remote # add the remote
+$ git remote -v                   # list all remotes and their locations
+</pre>
       </div>
 
       <div class="layout-bottom">
@@ -433,12 +423,12 @@ $ git remote -v</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Remote: Pushing your changes to a remote">
     <div class="layout-2">
-      <div class="layout-top">
-        <pre>$ git push --set-upstream origin master:master
-$ git push</pre>
+      <div class="layout-top"><pre>
+$ git push REMOTE LOCAL_BRANCH:REMOTE_BRANCH      # explicit syntax
+$ git push origin master:master                   # sample usage
+</pre>
       </div>
 
       <div class="layout-bottom">
@@ -446,15 +436,33 @@ $ git push</pre>
       </div>
     </div>
   </slide>
+
   <slide
-    scale="1"
+  title="Remote: Pushing made easy">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>
+$ git branch --set-upstream-to REMOTE/REMOTE_BRANCH  # set a tracking branch
+$ git branch -r                                     # show tracking branches
+$ git push                                # push to the preconfigured remote</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
     title="Remote: Getting the content that is on a remote">
     <div class="layout-2">
       <div class="layout-top">
-        <pre>$ cd ~/example-100
-$ git fetch origin</pre>
+        <li>This will <b>not</b> update any local branch!</li>
+        <pre>
+$ cd ~/example-100
+$ git fetch origin
+</pre>
       </div>
-
       <div class="layout-bottom">
         <tty></tty>
       </div>
@@ -462,7 +470,6 @@ $ git fetch origin</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Remote: Viewing the changes of the remote">
     <div class="layout-1">
       <div class="layout-center">
@@ -472,54 +479,41 @@ $ git fetch origin</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Remote: How to get remote changes to your local files">
-    <div class="layout-2">
-      <div class="layout-top">
-        We can fast-forward!
-        <pre>$ git merge --ff-only origin/master</pre>
-      </div>
-
-      <div class="layout-bottom">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Remote: What if I changed something?">
-    <div class="layout-2">
-      <div class="layout-top">
-        <pre>$ cd ~/example-101
-$ git fetch</pre>
-      </div>
-
-      <div class="layout-bottom">
-        <tty></tty>
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    scale="1"
-    title="Remote: What if I changed something?">
     <div class="layout-1">
       <div class="layout-center">
-        <tty></tty>
+        <ul>
+          <li>It depends!</li>
+          <li>Two strategies: <b>rebase</b> and <b>merge</b></li>
+          <li>When in doubt: prefer rebase as it yields cleaner histories</li>
+        </ul>
       </div>
     </div>
   </slide>
 
   <slide
-    scale="1"
-    title="Remote: What if the same local files were edited as on the remote?">
+    title="Remote: How a merge works">
+    <history [setup]="howAMergeWorks"></history>
+  </slide>
+
+  <slide
+    title="Remote: How a rebase works">
+    <div class="layout-1">
+      <div class="layout-center" style="text-align: center;">
+        <img height="650" src="assets/rebase.svg">
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    title="Remote: Updating without local changes (rebase)">
     <div class="layout-2">
       <div class="layout-top">
-        You have to handle the conflicts by yourself!
-        <pre>$ cd ~/example-102
+        <pre>
+$ cd ~/example-100
 $ git fetch
-$ git rebase origin/master</pre>
+$ git rebase
+</pre>
       </div>
 
       <div class="layout-bottom">
@@ -529,8 +523,42 @@ $ git rebase origin/master</pre>
   </slide>
 
   <slide
-    scale="1"
-    title="Remote: What if the same local files were edited as on the remote?">
+    title="Remote: Updating with new files (rebase)">
+    <div class="layout-2">
+      <div class="layout-top">
+        <pre>
+$ cd ~/example-101
+$ git fetch
+$ git rebase
+</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    title="Remote: Updating with local changes (rebase)">
+    <div class="layout-2">
+      <div class="layout-top">
+        <li>You have to handle the conflicts by yourself!</li>
+        <pre>
+$ cd ~/example-102
+$ git fetch
+$ git rebase origin/master
+</pre>
+      </div>
+
+      <div class="layout-bottom">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    title="Remote: Updating with local changes (rebase)">
     <div class="layout-1">
       <div class="layout-center">
         <tty></tty>
@@ -539,14 +567,11 @@ $ git rebase origin/master</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Remote: Cloning an existing repository">
     <div class="layout-2">
       <div class="layout-center-top">
-        <p>
-          Cloning means receiving an identical copy of the remote repository
-        </p>
-
+        <li>Cloning means receiving an identical copy of the remote repository</li>
+        <li><code>git clone</code> will setup remotes and tracking branches for you</li>
         <pre>$ git clone https://github.com/octocat/Hello-World.git
 $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test</pre>
       </div>
@@ -555,17 +580,29 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
       </div>
     </div>
   </slide>
+
+  <slide
+  title="Remote: Coordinating your work">
+  <div class="layout-1">
+    <div class="layout-center">
+      <ul>
+        <li>Working with remotes doesn't mean working with others!</li>
+        <li>Working in a team requires special caution!</li>
+        <li>Teams require workflows.</li>
+      </ul>
+    </div>
+  </div>
+</slide>
 </chapter>
 
 <chapter title="Teams" subtitle="Working with a team">
   <slide
-    scale="1"
     title="Teams: Ok, and how do I use these branches and tags now?">
     <div class="layout-2">
       <div class="layout-top">
         <ul>
           <li>How do I use branches in my workflow?</li>
-          <li>Let's see what else you can do with branches?</li>
+          <li>Let's see what else you can do with branches!</li>
         </ul>
       </div>
 
@@ -576,34 +613,24 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
   </slide>
 
   <slide
-    scale="1"
-    title="Teams: How a merge works">
-    <history [setup]="howAMergeWorks"></history>
-  </slide>
+    title="Teams: Why Workflows">
 
-  <slide
-    scale="1"
-    title="Teams: How a rebase works">
-    <div class="layout-1">
-      <div class="layout-center" style="text-align: center;">
-        <img height="650" src="assets/rebase.svg">
+    <div class="layout-2">
+      <div class="layout-top">
+        <li>Antipattern time!</li>
+        <li>Never use <code>--force</code> unless you <b>really</b> know what you're doing!</li>
+      </div>
+      <div class="layout-bottom">
+<pre>
+$ git add -A
+$ git commit -m "Done some important work(not tested)"
+$ git push --force
+</pre>
       </div>
     </div>
   </slide>
-  <slide
-    scale="1"
-    title="Teams: Why Workflows">
-
-    <div class="layout-center">
-      <pre>$ git add -A
-$ git commit -m "Done some important work(not tested)"
-$ git push --force</pre>
-    </div>
-
-  </slide>
 
   <slide
-    scale="1"
     title="Teams: Literally 5 minutes later">
     <div class="layout-center" style="text-align: center">
       <img src="../../assets/workflow_burning.png">
@@ -611,7 +638,6 @@ $ git push --force</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Teams: Centralized Workflow">
     <div class="layout-left">
       <div style="text-align: center">
@@ -627,7 +653,6 @@ $ git push --force</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Teams: Workflows">
     <div class="layout-center">
       So what if you want to introduce a new awesome feature? <br>
@@ -636,7 +661,6 @@ $ git push --force</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Teams: Workflows">
     <div class="layout-center-top">
       <pre>
@@ -650,14 +674,12 @@ to the same ref</pre>
   </slide>
 
   <slide
-    scale="1"
     title="Teams: Topic Branches">
     Solution? Create branches for new features!
     <history [setup]="topicBranches"></history>
   </slide>
 
   <slide
-    scale="1"
     title="Teams: GitFlow Workflow">
     <history [setup]="gitFlowWorkflow"></history>
   </slide>
@@ -680,6 +702,7 @@ to the same ref</pre>
     <br>
     <ul>
       <li>Widely used for cooperation between individual developers</li>
+      <li>Works best when using multiple remotes</li>
     </ul>
   </slide>
 
@@ -692,4 +715,8 @@ to the same ref</pre>
     Provide a way to include the changes done in your own fork into another repository <br><br>
     Similar to merge requests but for forks
   </slide>
+</chapter>
+
+
+<chapter title="Thanks" subtitle="Q/A Time!">
 </chapter>

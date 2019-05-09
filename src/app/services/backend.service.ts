@@ -7,6 +7,7 @@ import {
   Connection,
   BrowserWebSocketTransport,
   TicketAuthProvider,
+  WampDict,
 } from '@verkehrsministerium/kraftfahrstrasse';
 import { Deferred } from 'queueable';
 import { BrowserMSGPackSerializer } from '@verkehrsministerium/kraftfahrstrasse/build/module/serialize/BrowserMSGPack';
@@ -55,6 +56,7 @@ export class ConsoleInstance {
 export class BackendService {
   private _connection: Connection;
   private _instanceid: string;
+  private _ready: boolean;
   private _state = new BehaviorSubject<EConnState>(EConnState.Disconnected);
 
   constructor() {
@@ -74,6 +76,7 @@ export class BackendService {
       authProvider: new TicketAuthProvider(user.user, async () => ({
         signature: user.pass
       })),
+      logFunction: () => {},
       endpoint: environment.endpoint,
       serializer: new BrowserMSGPackSerializer(),
     });
@@ -86,8 +89,19 @@ export class BackendService {
           console.log('Opening!');
           this._connection.Open().then((det) => {
             this._instanceid = (det.authextra || {})['containerid'] || '';
-            console.log('Connected, instance:', this._instanceid);
-            this._state.next(EConnState.Connected);
+            this._ready = (det.authextra || {})['ready'] || false;
+            if (!this._ready) {
+              this._connection.Subscribe<[string], WampDict>(`rocks.git.${this._instanceid}.state`, args => {
+                if (args[0] === 'ready') {
+                  this._ready = true;
+                  console.log('State transition to ready state');
+                  this._state.next(EConnState.Connected);
+                }
+              });
+            } else {
+              console.log('Connected, container already running,instance:', this._instanceid);
+              this._state.next(EConnState.Connected);
+            }
             this._connection.OnClose().then((close) => {
               console.log('Connection closed:', close);
               // Connection closed, whyever, maybe log?
