@@ -10,7 +10,7 @@ import { DateService } from '../services/date.service';
   styleUrls: ['./slide.component.scss']
 })
 export class SlideComponent {
-  @Input() public scale: string;
+  @Input() public scale = 1;
   @Input() public title: string;
   public order: number;
   public totalOrder: number;

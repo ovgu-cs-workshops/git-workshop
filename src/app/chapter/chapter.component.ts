@@ -1,4 +1,4 @@
-import { Component, QueryList, ContentChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import {Component, QueryList, ContentChildren, AfterViewInit, ChangeDetectorRef, ViewChildren, Input} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { SlideComponent } from '../slide/slide.component';
@@ -10,6 +10,10 @@ import { SlideComponent } from '../slide/slide.component';
 })
 export class ChapterComponent implements AfterViewInit {
   @ContentChildren(SlideComponent) private _slides: QueryList<SlideComponent>;
+  @ViewChildren(SlideComponent) private _slidesDirect: QueryList<SlideComponent>;
+
+  @Input() public title = '';
+  @Input() public subtitle = '';
 
   public order = 0;
   public prevOrder = 0;
@@ -31,6 +35,10 @@ export class ChapterComponent implements AfterViewInit {
   }
 
   public assignSlidePositions(start: number): number {
+    this._slidesDirect.forEach(slide => {
+      slide.position.next(++start);
+    });
+
     this._slides.forEach(slide => {
       slide.position.next(++start);
     });
@@ -39,12 +47,20 @@ export class ChapterComponent implements AfterViewInit {
   }
 
   public setSlideCount(count: number): void {
+    this._slidesDirect.forEach(slide => {
+      slide.slideCount.next(count);
+    });
+
     this._slides.forEach(slide => {
       slide.slideCount.next(count);
     });
   }
 
   public ngAfterViewInit(): void {
+    this._slidesDirect.forEach((slide) => {
+      slide.subscribe(this.prevOrderSubject, this.chapterSubject);
+      slide.order = this.order++;
+    });
     this._slides.forEach((slide) => {
       slide.subscribe(this.prevOrderSubject, this.chapterSubject);
       slide.order = this.order++;

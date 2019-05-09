@@ -1,14 +1,14 @@
-FROM node:11 as builder
+FROM node:11-alpine as builder
 
-WORKDIR /
-RUN git clone https://github.com/ovgu-cs-workshops/git-workshop.git git-workshop
-WORKDIR git-workshop
-
+WORKDIR /git-workshop
+ADD package.json .
+ADD package-lock.json .
 RUN npm ci
+ADD . .
 RUN npx ng build --prod
 RUN ls dist
 
-FROM nginx:latest
+FROM nginx:1.16-alpine
 
 COPY --from=builder /git-workshop/dist /usr/share/nginx/html
 
