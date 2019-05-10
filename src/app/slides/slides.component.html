@@ -1,15 +1,16 @@
 <chapter>
   <slide
-    title="">
+    title="An interactive introduction to Git">
     <div class="layout-1x1">
       <div class="layout-left">
-        <h2>An interactive introduction<br>to Git</h2>
         <h3>
-          Fin Christensen
+          Jonas Dittrich
           <br>
           Willy Failla
           <br>
           Martin Koppehel
+          <br>
+          Jasper Orschulko
           <br>
           Johann Wagner
           <br>
@@ -24,17 +25,19 @@
   </slide>
 
   <slide title="Agenda">
-    TBD
-    <ul>
-      <li>Introduction</li>
-      <li>Basics</li>
-      <li>Working locally</li>
-      <li>Working remotely</li>
-      <li>Working in teams</li>
-          <ul>
-            <li>Workflows</li>
-          </ul>
-    </ul>
+    <div class="layout-1x1x1">
+      <ul>
+        <li>Introduction</li>
+        <li>Basics</li>
+        <li>Working locally</li>
+        <hr>
+        <li>Working remotely</li>
+        <li>Working in teams</li>
+            <ul>
+              <li>Workflows</li>
+            </ul>
+      </ul>
+    </div>
     <!--<history [setup]="agenda"></history>-->
   </slide>
 </chapter>
@@ -83,18 +86,17 @@
   </slide>
 
   <slide
-    title="Basics: Git Concepts">
+    title="Basics: Git Objects">
     <div class="layout-1x1">
       <div class="layout-left">
         <ul>
-          <li>Git knows 4 concepts:</li>
+          <li>Git knows 4 objects:</li>
           <ul>
             <li>Repositories</li>
             <li>Commits</li>
             <li>Branches</li>
             <li>Tags</li>
           </ul>
-          <li>So, let's look at these concepts</li>
         </ul>
       </div>
     </div>
@@ -204,7 +206,7 @@
         <ul>
           <li>A repository is made up of commits, branches and tags</li>
           <li><b>Commits</b> contain changes</li>
-          <li>Branches are names for commit series</li>
+          <li>Branches are pointers to a specific commit</li>
           <li>Tags are specific points in your history</li>
         </ul>
       </div>
@@ -349,7 +351,8 @@ Long description ------- 80 chars wide -----------------------------------------
     <div class="layout-2">
       <div class="layout-center-top">
         There is magic for that! A file called <code>.gitignore</code>
-        <pre>./just?use*bash{{'{'}}globs,here{{'}'}}</pre>
+        <pre>./**/*.{{'{'}}bin,out{{'}'}}</pre>
+        Reference: <a href="https://github.com/begin/globbing">https://github.com/begin/globbing</a>
       </div>
       <div class="layout-center-bottom">
         <tty></tty>
@@ -443,7 +446,7 @@ $ git push origin master:master                   # sample usage
       <div class="layout-top">
         <pre>
 $ git branch --set-upstream-to REMOTE/REMOTE_BRANCH  # set a tracking branch
-$ git branch -r                                     # show tracking branches
+$ git branch --remotes                               # show tracking branches
 $ git push                                # push to the preconfigured remote</pre>
       </div>
 

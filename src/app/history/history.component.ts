@@ -30,11 +30,12 @@ export class HistoryComponent implements AfterViewInit {
           branch: {
             lineWidth: 12,
             spacingX: 50,
-            labelRotation: 0
+            labelRotation: 0,
+            showLabel: false,
           },
           commit: {
             widthExtension: 650,
-            spacingY: -80,
+            spacingY: -75,
             dot: {
               size: 20,
               font: 'normal 16pt Hack',
@@ -46,8 +47,8 @@ export class HistoryComponent implements AfterViewInit {
             message: {
               font: 'normal 28pt Hack',
 							displayHash: false,
-							displayAuthor: false,
-            }
+              displayAuthor: false,
+            },
           }
         }
 			),

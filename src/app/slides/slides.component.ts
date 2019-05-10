@@ -38,41 +38,30 @@ export class SlidesComponent implements AfterViewInit {
     this._changeDetector.detectChanges();
   }
 
-  public agenda(config: any): void {
-    const graph = new GitGraph({
-      ...config,
-      orientation: 'vertical',
-    });
-    const master = graph.branch('master');
-    master.commit('Basics');
-    const basics = master.branch('basics');
-    basics.commit('Introduction to Version Control & Git');
-    basics.commit('Interactive Guide to Git Basics');
-    master.commit('Workflows');
-    const wf = master.branch(<any> {
-      name: 'workflows',
-      column: 1,
-    });
-    wf.commit('Most Common Git Workflows');
-    master.commit('Tricks');
-    const tricks = master.branch(<any> {
-      name: 'tricks',
-      column: 1,
-    });
-    tricks.commit('Advanced Tricks With Git');
-    master.commit('Q&A');
-  }
-
   public whatIsATag(config: any): void {
     config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
+    const graph = new GitGraph({
+      ...config
+    });
     (<any> graph).template.commit.tag.spacingX = 70;
     const master = graph.branch('master');
-    master.commit('Initial commit');
-    master.commit('Add fancy code');
-    master.commit('Add documentation');
+    master.commit({
+      messageBranchDisplay: false,
+      message: 'Initial commit',
+    });
+    master.commit({
+      messageBranchDisplay: false,
+      message: 'Add fancy code',
+    });
+    master.commit({
+      messageBranchDisplay: false,
+      message: 'Add documentation',
+    });
     master.tag('v0.1.0');
-    master.commit('Fix major bugs');
+    master.commit({
+      messageBranchDisplay: true,
+      message: 'Fix major bugs',
+    });
 
     console.log(graph);
   }
@@ -80,30 +69,53 @@ export class SlidesComponent implements AfterViewInit {
   public howAMergeWorks(config: any): void {
     const graph = new GitGraph(config);
     const master = graph.branch('master');
-    master.commit('Fix compiler errors');
+    master.commit({
+      message: 'Fix compiler errors',
+      messageBranchDisplay: false,
+    });
     const logging = master.branch('logging');
-    logging.commit('Add logging to application');
-    master.commit('Add translation to german');
-    logging.commit('Add support for log-levels');
+    logging.commit({
+      message: 'Add logging to application',
+      messageBranchDisplay: false,
+    });
+    master.commit({
+      message: 'Add translation to german',
+      messageBranchDisplay: false,
+    });
+    logging.commit({
+      message: 'Add support for log-levels',
+      messageBranchDisplay: true,
+    });
     logging.merge(master);
   }
 
   public gitFlowWorkflow(config: any): void {
-    const graph = new GitGraph(config);
+    const graph = new GitGraph({
+      ...config,
+    });
     const master = graph.branch('master');
-    master.commit('Initial commit');
+    master.commit({
+      message: 'Initial commit',
+      messageBranchDisplay: false,
+    });
     const develop = master.branch(<any> {
       name: 'develop',
       column: 2
     });
-    develop.commit('Start development');
+    develop.commit({
+      message: 'Start development',
+      messageBranchDisplay: false,
+    });
     const feature = develop.branch(<any> {
       name: 'feature/new-chapter',
       column: 3
     });
     feature.commit('Add new chapter');
-    develop.commit('Fix spelling');
-    feature.merge(develop);
+    develop.commit({
+      message: 'Fix spelling',
+      messageBranchDisplay: false,
+    });
+    feature.merge(develop, { messageBranchDisplay: false, });
     const release = develop.branch(<any> {
       name: 'release-v0.1.0',
       column: 1
@@ -120,97 +132,26 @@ export class SlidesComponent implements AfterViewInit {
       name: 'master',
       column: 1
     });
-    master.commit('Initial commit');
+    master.commit({
+      message: 'Initial commit',
+      messageBranchDisplay: false,
+    });
     const feature = master.branch(<any> {
       name: 'feature/introduction',
-      column: 2
+      column: 2,
     });
     const f2 = master.branch(<any> {
       name: 'feature/agenda',
       column: 0
     });
-    feature.commit('Add introduction');
-    f2.commit('Add fancy agenda')
+    feature.commit({
+      message: 'Add introduction',
+      messageBranchDisplay: false,
+    });
+    f2.commit('Add fancy agenda');
     feature.commit('Fix spelling');
-    feature.merge(master);
+    feature.merge(master, { messageBranchDisplay: false, });
     f2.merge(master);
-  }
-
-  public fix1(config: any): void {
-    config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('commit 3');
-    master.commit('commit 4');
-    master.commit('commit 5');
-  }
-
-  public fix2(config: any): void {
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2-4');
-    master.commit('commit 5');
-  }
-
-  public reword1(config: any): void {
-    config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('commit 3');
-    master.commit('commit 4');
-    master.commit('commit 5');
-  }
-
-  public reword2(config: any): void {
-    config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('reword');
-    master.commit('commit 4');
-    master.commit('commit 5');
-  }
-
-  public reword3(config: any): void {
-    config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('commit 4');
-    master.commit('commit 5');
-  }
-
-  public cherrypick1(config: any): void {
-    config.template.commit.widthExtension = 0;
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('commit 3');
-    const dev = master.branch('dev');
-    dev.commit('dev commit 1');
-    dev.commit('dev commit 2');
-    master.commit('commit 4');
-  }
-
-  public cherrypick2(config: any): void {
-    const graph = new GitGraph(config);
-    const master = graph.branch('master');
-    master.commit('commit 1');
-    master.commit('commit 2');
-    master.commit('commit 3');
-    const dev = master.branch('dev');
-    dev.commit('dev commit 1');
-    dev.commit('dev commit 2');
-    master.commit('commit 4');
-    dev.commit('dev commit 4');
   }
 
   public central(config: any): void {
@@ -219,8 +160,14 @@ export class SlidesComponent implements AfterViewInit {
       orientation: 'vertical-reverse',
     });
     const master = graph.branch('master');
-    master.commit('Initial commit');
-    master.commit('Add cool feature');
+    master.commit({
+      message: 'Initial commit',
+      messageBranchDisplay: false,
+    });
+    master.commit({
+      message: 'Add cool feature',
+      messageBranchDisplay: false,
+    });
     master.commit('And even more');
   }
 }
