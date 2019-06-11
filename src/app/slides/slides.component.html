@@ -44,13 +44,6 @@
 
 <chapter title="Introduction">
   <slide
-    title="Introduction: Why version control?">
-    <div class="layout-1">
-      <img class="layout-center" src="./assets/version-control.svg">
-    </div>
-  </slide>
-
-  <slide
     title="Introduction: Git">
     <div class="layout-1x1">
       <div class="layout-left">
@@ -239,6 +232,7 @@
     <div class="layout-2">
       <div class="layout-center-top">
         Configure your environment!
+        This is a one-time operation, although it can be overwritten on a per repository basis by ommiting the --global flag.
         <pre>$ git config --global user.name "name"
 $ git config --global user.email "email"
 $ git config --global core.editor nano</pre>
@@ -352,6 +346,7 @@ Long description ------- 80 chars wide -----------------------------------------
       <div class="layout-center-top">
         There is magic for that! A file called <code>.gitignore</code>
         <pre>./**/*.{{'{'}}bin,out{{'}'}}</pre>
+        Globbing syntax can be used for wildcards<br>
         Reference: <a href="https://github.com/begin/globbing">https://github.com/begin/globbing</a>
       </div>
       <div class="layout-center-bottom">
@@ -622,47 +617,6 @@ $ git clone https://github.com/octocat/Hello-World.git -b test Hello-World-test<
 
 <chapter title="Teams" subtitle="Working with a team">
   <slide
-    title="Teams: Ok, and how do I use these branches and tags now?">
-    <div class="layout-2">
-      <div class="layout-top">
-        <ul>
-          <li>How do I use branches in my workflow?</li>
-          <li>Let's see what else you can do with branches!</li>
-        </ul>
-      </div>
-
-      <div class="layout-bottom">
-        <img src="assets/git-merge-rebase.svg">
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    title="Teams: Why Workflows">
-
-    <div class="layout-2">
-      <div class="layout-top">
-        <li>Antipattern time!</li>
-        <li>Never use <code>--force</code> unless you <b>really</b> know what you're doing!</li>
-      </div>
-      <div class="layout-bottom">
-<pre>
-$ git add -A
-$ git commit -m "Done some important work(not tested)"
-$ git push --force
-</pre>
-      </div>
-    </div>
-  </slide>
-
-  <slide
-    title="Teams: Literally 5 minutes later">
-    <div class="layout-center" style="text-align: center">
-      <img src="../../assets/workflow_burning.png">
-    </div>
-  </slide>
-
-  <slide
     title="Teams: Centralized Workflow">
     <div class="layout-left">
       <div style="text-align: center">
@@ -699,9 +653,57 @@ to the same ref</pre>
   </slide>
 
   <slide
+    title="Teams: Why Workflows">
+
+    <div class="layout-2">
+      <div class="layout-top">
+        <li>Antipattern time!</li>
+        <li>Never use <code>--force</code> unless you <b>really</b> know what you're doing!</li>
+      </div>
+      <div class="layout-bottom">
+<pre>
+$ git add -A
+$ git commit -m "Done some important work(not tested)"
+$ git push --force
+</pre>
+      </div>
+    </div>
+  </slide>
+
+  <slide
+    title="Teams: Literally 5 minutes later">
+    <div class="layout-center" style="text-align: center">
+      <img src="../../assets/this-is-fine.jpg" width="90%" height="90%">
+    </div>
+  </slide>
+
+  <slide
+    title="Teams: Ok, and how do I use these branches and tags now?">
+    <div class="layout-2">
+      <div class="layout-top">
+        <ul>
+          <li>How do I use branches in my workflow?</li>
+          <li>Let's see what else you can do with branches!</li>
+        </ul>
+      </div>
+
+      <div class="layout-bottom">
+        <img src="assets/git-merge-rebase.svg">
+      </div>
+    </div>
+  </slide>
+
+  <slide
     title="Teams: Topic Branches">
     Solution? Create branches for new features!
     <history [setup]="topicBranches"></history>
+  </slide>
+
+  <slide
+    title="Teams: Topic Branches">
+    <div class="layout-1">
+      <tty></tty>
+    </div>
   </slide>
 
   <slide
@@ -715,6 +717,7 @@ to the same ref</pre>
       <tty></tty>
     </div>
   </slide>
+
   <slide
     title="Teams: Forking Workflow">
     <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
@@ -728,6 +731,17 @@ to the same ref</pre>
     <ul>
       <li>Widely used for cooperation between individual developers</li>
       <li>Works best when using multiple remotes</li>
+    </ul>
+  </slide>
+
+  <slide
+    title="Teams: What is the best Workflow for me?">
+    <ul>
+      <li>Git workflows are vastly specific</li>
+      <li>There are no right or wrong workflows</li>
+      <li>Find the workflow that works the best for you</li>
+      <li>Depends on your needs</li>
+      <li>Should be evaluated for each project</li>
     </ul>
   </slide>
 
