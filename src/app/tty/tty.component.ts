@@ -1,12 +1,7 @@
 import { Component, AfterViewInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { BackendService } from '../services/backend.service';
-import { Terminal } from 'xterm';
-import * as WebfontLoader from 'xterm-webfont';
+import { Terminal } from '../../util/terminal';
 
-declare var document: any;
-
-Terminal.applyAddon(WebfontLoader)
-;
 @Component({
   selector: 'tty',
   templateUrl: './tty.component.html',

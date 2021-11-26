@@ -1,4 +1,4 @@
-FROM node:11-alpine as builder
+FROM node:16-alpine as builder
 
 WORKDIR /git-workshop
 ADD package.json .
@@ -8,7 +8,7 @@ ADD . .
 RUN npx ng build --prod
 RUN ls dist
 
-FROM nginx:1.16-alpine
+FROM nginx:1.21-alpine
 
 COPY --from=builder /git-workshop/dist /usr/share/nginx/html
 

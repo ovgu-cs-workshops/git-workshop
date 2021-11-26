@@ -9,8 +9,8 @@ import {
   TicketAuthProvider,
   WampDict,
 } from '@verkehrsministerium/kraftfahrstrasse';
-import { Deferred } from 'queueable';
-import { BrowserMSGPackSerializer } from '@verkehrsministerium/kraftfahrstrasse/build/module/serialize/BrowserMSGPack';
+import { Deferred } from '../../util/queueable';
+import { JSONSerializer } from '@verkehrsministerium/kraftfahrstrasse';
 
 const random = () => Math.random().toString(36).substring(7);
 
@@ -78,7 +78,7 @@ export class BackendService {
       })),
       logFunction: () => {},
       endpoint: environment.endpoint,
-      serializer: new BrowserMSGPackSerializer(),
+      serializer: new JSONSerializer(),
     });
     this._state.subscribe(state => {
       if (state === EConnState.Disconnected) {
