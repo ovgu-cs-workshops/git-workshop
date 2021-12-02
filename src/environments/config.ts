@@ -1,3 +1,3 @@
 export const config = {
-  date: 'May 2019',
+  date: 'Dec. 2021',
 };

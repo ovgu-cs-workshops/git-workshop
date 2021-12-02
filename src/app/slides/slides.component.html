@@ -359,6 +359,20 @@ Long description ------- 80 chars wide -----------------------------------------
       </div>
     </div>
   </slide>
+  <slide title="Local: I made a mistake in a commit!">
+  <div class="layout-2">
+    <div class="layout-center-top">
+      <pre>
+$ git commit --amend # replace last commit with new message
+$ git rebase -i $commit # work with the last few commits interactively
+      </pre>
+      <b>Warning: This creates <i>NEW</i> commits! Be careful in teams.</b>
+    </div>
+    <div class="layout-center-bottom">
+      <tty></tty>
+    </div>
+  </div>
+</slide>
 
   <slide
     title="Local: Going further">
@@ -742,6 +756,78 @@ to the same ref</pre>
   </slide>
 </chapter>
 
+<chapter>
+  <slide>
+    <div class="layout-center-top" style="text-align: center">
+      <h1>Submodules</h1>
+      <img src="../../assets/submodules-intro.jpg">
+    </div>
+  </slide>
+  <slide title="Submodules: Motivation">
+    <div class="layout-1">
+      <ul>
+        <li>Independent versioning of some components</li>
+        <li>Shared code</li>
+        <li>e.g. Build Scripts, CI config, protocol definitions</li>
+        <hr>
+        <li><b>Several caveats!</b></li>
+        <li>Live in <code>.gitmodules</code> file</li>
+        <li>Reference a commit and a remote</li>
+      </ul>
+    </div>
+  </slide>
+  <slide title="Submodules: Management">
+    <div class="layout-2">
+      <div class="layout-center-top">
+        Initialization and Removal:
+        <pre>
+$ git submodule add [-b branch] repository path # adds given submodule
+$ git rm -r path # completely removes a submodule at path
+        </pre>
+      </div>
+      <div class="layout-center-bottom">
+        Sample <code>.gitmodules</code> file:
+        <pre>
+[submodule "iris-kas"]
+path = iris-kas
+url = ssh>//git@github.com:iris-gmbh/iris-kas.git
+        </pre>
+      </div>
+    </div>
+  </slide>
+  <slide title="Submodules: Cloning and Updating">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        Clone with submodules:
+        <pre>$ git clone --recursive<br>$ git submodule init --recursive</pre>
+        Updating submodules:
+        <pre>$ git submodule update --recursive</pre>
+        <b>Submodules are not automatically updated after updating the root repository!</b>
+      </div>
+      <div class="layout-right">
+        <tty></tty>
+      </div>
+    </div>
+  </slide>
+  <slide title="Submodules: Changing locally">
+    <div class="layout-1x1">
+      <div class="layout-left">
+        Changes in submodules <b>don't</b> get committed automatically!
+        <pre>
+$ cd $submodule_path
+$ git add ...
+$ git commit -m "Changes in submodule"
+$ cd $root_repo
+$ git add $submodule_path
+$ git commit -m "Update submodule"
+        </pre>
+      </div>
+      <div class="layout-right" style="text-align: center;">
+        <img src="../../assets/submodules-pain.jpg">
+      </div>
+    </div>
+  </slide>
+</chapter>
 
 <chapter title="Thanks" subtitle="Q/A Time!">
 </chapter>

@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --extra-webpack-config webpack.partial.js",
+    "start": "ng serve --extra-webpack-config webpack.partial.js --configuration development",
     "build": "ng build --configuration production --extra-webpack-config webpack.partial.js",
     "test": "ng test",
     "lint": "ng lint",
