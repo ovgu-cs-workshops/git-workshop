@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
 
 import {
   Connection,
@@ -11,6 +10,7 @@ import {
 } from '@verkehrsministerium/kraftfahrstrasse';
 import { Deferred } from '../../util/queueable';
 import { JSONSerializer } from '@verkehrsministerium/kraftfahrstrasse';
+import { ConfigService } from './config.service';
 
 const random = () => Math.random().toString(36).substring(7);
 
@@ -59,7 +59,7 @@ export class BackendService {
   private _ready: boolean;
   private _state = new BehaviorSubject<EConnState>(EConnState.Disconnected);
 
-  constructor() {
+  constructor(private config: ConfigService) {
     const connconfig = localStorage.getItem('connconfig');
     let user: IConnectionConfig = {
       pass: random(),
@@ -70,54 +70,57 @@ export class BackendService {
     } else {
       localStorage.setItem('connconfig', JSON.stringify(user));
     }
-    this._connection = new Connection({
-      realm: 'gittalk',
-      transport: BrowserWebSocketTransport,
-      authProvider: new TicketAuthProvider(user.user, async () => ({
-        signature: user.pass
-      })),
-      logFunction: () => {},
-      endpoint: environment.endpoint,
-      serializer: new JSONSerializer(),
-    });
-    this._state.subscribe(state => {
-      if (state === EConnState.Disconnected) {
-        // if we're disconnected (whyever, e.g. server is dead, connection lost, etc...)
-        setTimeout(() => {
-          console.log('Connecting!');
-          this._state.next(EConnState.Connecting);
-          console.log('Opening!');
-          this._connection.Open().then((det) => {
-            this._instanceid = (det.authextra || {})['containerid'] || '';
-            this._ready = (det.authextra || {})['ready'] || false;
-            if (!this._ready) {
-              this._connection.Subscribe<[string], WampDict>(`rocks.git.${this._instanceid}.state`, args => {
-                if (args[0] === 'ready') {
-                  this._ready = true;
-                  console.log('State transition to ready state');
-                  this._state.next(EConnState.Connected);
-                }
+    this.config.config.then((cfg) => {
+
+      this._connection = new Connection({
+        transport: BrowserWebSocketTransport,
+        authProvider: new TicketAuthProvider(user.user, async () => ({
+          signature: user.pass
+        })),
+        logFunction: () => {},
+        endpoint: cfg.endpoint,
+        realm: cfg.realm,
+        serializer: new JSONSerializer(),
+      });
+      this._state.subscribe(state => {
+        if (state === EConnState.Disconnected) {
+          // if we're disconnected (whyever, e.g. server is dead, connection lost, etc...)
+          setTimeout(() => {
+            console.log('Connecting!');
+            this._state.next(EConnState.Connecting);
+            console.log('Opening!');
+            this._connection.Open().then((det) => {
+              this._instanceid = (det.authextra || {})['containerid'] || '';
+              this._ready = (det.authextra || {})['ready'] || false;
+              if (!this._ready) {
+                this._connection.Subscribe<[string], WampDict>(`rocks.git.${this._instanceid}.state`, args => {
+                  if (args[0] === 'ready') {
+                    this._ready = true;
+                    console.log('State transition to ready state');
+                    this._state.next(EConnState.Connected);
+                  }
+                });
+              } else {
+                console.log('Connected, container already running,instance:', this._instanceid);
+                this._state.next(EConnState.Connected);
+              }
+              this._connection.OnClose().then((close) => {
+                console.log('Connection closed:', close);
+                // Connection closed, whyever, maybe log?
+                this._state.next(EConnState.Disconnected);
+              }, (err) => {
+                console.error('OnClose error:', err);
+                // Connection closed with an error...
+                this._state.next(EConnState.Disconnected);
               });
-            } else {
-              console.log('Connected, container already running,instance:', this._instanceid);
-              this._state.next(EConnState.Connected);
-            }
-            this._connection.OnClose().then((close) => {
-              console.log('Connection closed:', close);
-              // Connection closed, whyever, maybe log?
-              this._state.next(EConnState.Disconnected);
             }, (err) => {
-              console.error('OnClose error:', err);
-              // Connection closed with an error...
+              console.error('OnOpen error:', err);
+              // Failed to connect, maybe log error.
               this._state.next(EConnState.Disconnected);
             });
-          }, (err) => {
-            console.error('OnOpen error:', err);
-            // Failed to connect, maybe log error.
-            this._state.next(EConnState.Disconnected);
-          });
-        }, 1000);
-      }
+          }, 1000);
+        }
+      });
     });
   }
 

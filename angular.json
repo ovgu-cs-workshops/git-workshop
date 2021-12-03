@@ -28,6 +28,11 @@
                 "output": "/"
               },
               {
+                "glob": "config.json",
+                "input": "src/",
+                "output": "/"
+              },
+              {
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
@@ -95,6 +100,11 @@
             "assets": [
               {
                 "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              },
+              {
+                "glob": "config.json",
                 "input": "src/",
                 "output": "/"
               },

@@ -1,5 +1,6 @@
 import { Component, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ChapterComponent } from '../chapter/chapter.component';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'slides',
@@ -9,9 +10,11 @@ import { ChapterComponent } from '../chapter/chapter.component';
 export class SlidesComponent implements AfterViewInit {
   @ViewChildren(ChapterComponent) private _chapters: QueryList<ChapterComponent>;
 
+  public interactionLink: Promise<string>;
   private chapter = 0;
 
-  constructor(private _changeDetector: ChangeDetectorRef) {
+  constructor(private _changeDetector: ChangeDetectorRef, private config: ConfigService) {
+    this.interactionLink = this.config.config.then(cfg => cfg.interactionLink);
   }
 
   public ngAfterViewInit(): void {

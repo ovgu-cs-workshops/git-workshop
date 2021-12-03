@@ -1,0 +1,5 @@
+{
+  "endpoint":"ws://localhost:6032",
+  "realm":"gittalk",
+  "interactionLink":"https://tty.defra01.devops.iris-sensing.net"
+}
