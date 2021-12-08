@@ -5,7 +5,7 @@ ADD package.json .
 ADD package-lock.json .
 RUN npm ci
 ADD . .
-RUN npx ng build --prod
+RUN npm run build
 RUN ls dist
 
 FROM nginx:1.21-alpine
