@@ -31,15 +31,15 @@ export class TtyComponent implements AfterViewInit {
   ngAfterViewInit() {
     (this._terminal as any)
       .loadWebfontAndOpen(this._terminalElement.nativeElement)
-      .then(terminal => {
+      .then((terminal: Terminal) => {
         terminal.clear();
-        (terminal as any).fit();
+        terminal.fit();
         terminal.writeln('Connecting...');
 
         this._backend.createConsole(this._terminal.cols, this._terminal.rows)
           .then(result => {
             terminal.clear();
-            terminal.on('data', data => {
+            terminal.onData(data => {
               result.sendInput(data);
             });
             const sub = result.output.subscribe((out) => {

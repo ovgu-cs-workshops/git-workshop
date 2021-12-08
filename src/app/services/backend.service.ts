@@ -7,9 +7,9 @@ import {
   BrowserWebSocketTransport,
   TicketAuthProvider,
   WampDict,
+  BrowserMSGPackSerializer,
 } from '@verkehrsministerium/kraftfahrstrasse';
 import { Deferred } from '../../util/queueable';
-import { JSONSerializer } from '@verkehrsministerium/kraftfahrstrasse';
 import { ConfigService } from './config.service';
 
 const random = () => Math.random().toString(36).substring(7);
@@ -80,7 +80,7 @@ export class BackendService {
         logFunction: () => {},
         endpoint: cfg.endpoint,
         realm: cfg.realm,
-        serializer: new JSONSerializer(),
+        serializer: new BrowserMSGPackSerializer(),
       });
       this._state.subscribe(state => {
         if (state === EConnState.Disconnected) {
